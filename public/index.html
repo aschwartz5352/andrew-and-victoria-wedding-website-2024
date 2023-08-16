@@ -1,0 +1,421 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Victoria & Andrew Wedding</title>
+
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="Victoria & Andrew's Wedding">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+<!--  <link rel="stylesheet"-->
+<!--        href="https://fonts.googleapis.com/css?family=Playfair%20Display">-->
+  <style>
+    h1, h2, h3, h4, h5, h6, p, a, input, button {
+      font-family:  sans-serif;
+    }
+  </style>
+
+  <link rel="manifest" href="../site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+  <!--website icon-->
+  <link rel="icon" href="img/barryicon_c.jpeg" type="image/x-icon">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+
+<div id="body-wrapper">
+
+  <div class="modal-hidden" id="modal-backdrop">
+    <div id="modal">
+      <i class="fas fa-times" id="close-modal"></i>
+
+      <img src="img/fjordring_c.jpeg" class="modal-image" alt="party">
+
+      <h2 id="announcement">We Are Getting Married!</h2>
+      <p>We are so excited to celebrate with you 🥳</p>
+
+      <div class="input-container">
+        <input id="search-name-input" placeholder="Enter your name:"/>
+      </div>
+
+      <button id="search-name-button">Search</button>
+
+      <p id="not-found" style="display: none">not found, please search again</p>
+
+      <div id="name-search-results">
+
+      </div>
+
+      <p></p>
+      <p></p>
+    </div>
+  </div>
+
+  <!--  <div class="image-container">-->
+
+  <!--  </div>-->
+
+  <video autoplay muted playsinline id="proposal-video">
+    <source src="img/kneevideo2.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <img src="img/kneedark.jpeg" class="knee-image" id="proposal-knee-image" alt="knee" style="display: none">
+  <div class="centered-text">
+    <h1 id="victoria-andrew">Victoria & Andrew</h1>
+  </div>
+  <!--  <img src="img/paw.png" class="paw" alt="paw" style="margin: 14px 55px">-->
+  <!--  <img src="img/paw.png" class="paw" alt="paw" style="margin: 60px 4px">-->
+
+  <div id="behind-video-spacer"></div>
+
+  <div class="rsvp-wrapper">
+    <div class="flex-center">
+      <h2 class="thank-you-message" id="welcome-name">Welcome Drew!</h2>
+      <a id="change-name">Not Drew? Click here</a>
+
+      <div class="friend-image-wrapper">
+        <img src="img/fjordring_c.jpeg" id="friend-image" alt="party" style="display: none">
+        <p class="thank-you-story">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+          Ipsum
+          has
+          been the industry's
+          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
+          make
+          a
+          type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+          remaining essentially unchanged.
+          of Lorem Ipsum. </p>
+      </div>
+
+
+      <h2 class="thank-you-message">You are invited to:</h2>
+
+    </div>
+
+    <div class="date-flex">
+
+      <div id="bachelor-party-invite" class="date-wrapper">
+        <img src="img/bachelor_party.png" class="party-type-icon" alt="party">
+
+        <div class="date-info">
+          <h2 class="party-type-name">Bachelor Party</h2>
+          <h3 class="party-date">March 2nd, 2025 </h3>
+          <p class="address"> 1200 S DuSable Lk Shr Dr,</p>
+          <p class="address"> Chicago, IL 60605</p>
+        </div>
+      </div>
+
+      <div id="bridal-shower-invite" class="date-wrapper">
+        <img src="img/flowers.png" class="party-type-icon" alt="party">
+
+        <div class="date-info">
+          <h2 class="party-type-name">Bridal Shower</h2>
+          <h3 class="party-date">March 2nd, 2025 </h3>
+          <p class="address"> 1200 S DuSable Lk Shr Dr,</p>
+          <p class="address"> Chicago, IL 60605</p>
+        </div>
+      </div>
+
+      <div id="bachelorette-party-invite" class="date-wrapper">
+        <img src="img/bachelorette_party.png" class="party-type-icon" alt="party">
+
+        <div class="date-info">
+          <h2 class="party-type-name">Bachelorette Party</h2>
+          <h3 class="party-date">March 2nd, 2025 </h3>
+          <p class="address"> 1200 S DuSable Lk Shr Dr,</p>
+          <p class="address"> Chicago, IL 60605</p>
+        </div>
+      </div>
+
+
+      <div id="ceremony-invite" class="date-wrapper">
+        <div>
+          <img src="img/rings.png" class="party-type-icon" alt="rings">
+
+          <div class="date-info">
+
+            <h2 class="party-type-name">Ceremony</h2>
+            <h3 class="party-date">September 20th, 2024 </h3>
+            <p class="address"> 1200 S DuSable Lk Shr Dr,</p>
+            <p class="address"> Chicago, IL 60605</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="reception-invite" class="date-wrapper">
+        <img src="img/party.png" class="party-type-icon" alt="party">
+
+        <div class="date-info">
+          <h2 class="party-type-name">Reception</h2>
+          <h3 class="party-date">March 2nd, 2025 </h3>
+          <p class="address"> 1200 S DuSable Lk Shr Dr,</p>
+          <p class="address"> Chicago, IL 60605</p>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="flex-center">
+      <div class="rsvp-button">
+        <a href="https://withjoy.com/victoria-and-drew-2024/rsvp?ecard=true&personId=person-invitee-NbUu3guAR5L6DTwIWGd"
+           target="_blank" id="rsvp-link">RSVP</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="proposal-story">
+    <video autoplay loop muted playsinline id="schloss-video">
+      <source src="img/palace_breakfast.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="text-wrapper">
+      <img src="img/paw.png" class="paw" alt="paw" style="margin: -19px 55px">
+      <img src="img/paw.png" class="paw" alt="paw" style="margin: 22px 4px">
+      <h2>The Proposal</h2>
+      <p class="story-text">&nbsp;&nbsp;&nbsp;Growing up, Victoria and her family cherished The Sound of Music, finding new meanings in it each year. It became her solace in tough times and a melody of her high school days. When she discovered Drew had never seen it, they decided to travel to Austria for their winter vacation, a place dear to Victoria due to her connection to the movie. Drew saw this as the perfect setting to propose. </p>
+      <p class="story-text">&nbsp;&nbsp;&nbsp;
+        He meticulously planned the proposal, opting for the hotel where exterior shots of The Sound of Music were filmed. He secured a unique engagement ring, hired a photographer, and created a photo garland of their relationship. And so their fairytale vacation began, exploring new places as they’d done so many times before. That all changed their first morning at their hotel in Salzburg.</p>
+      <p class="story-text">&nbsp;&nbsp;&nbsp;
+        As they roamed the hotel's patio, Victoria discovered pictures of them throughout the years, leading to a heart-shaped arrangement of roses and balloons, asking, "Marry me?" Drew led her through this romantic path, surrounded by the Austrian Tirols, overflowing with heartfelt words. Overwhelmed, Victoria was left speechless until Drew asked the life-changing question: "Victoria, will you marry me?"</p>
+    </div>
+  </div>
+
+  <img src="img/walk_c.jpeg" class="body-image">
+
+
+  <div class="proposal-story flex-center" id="ceremony-section">
+
+    <div class="text-wrapper">
+      <h1>Ceremony</h1>
+      <img src="img/rings.png" class="invite-section-image" alt="rings" >
+      <h2>Let's Celebrate in Sevierville</h2>
+
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a
+        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum. </p>
+    </div>
+  </div>
+
+
+  <div class="carousel-container">
+    <div class="carousel">
+      <img src="img/lodge/living_room.jpeg">
+      <img src="img/lodge/hottub.jpeg">
+      <img src="img/lodge/balcony.jpeg">
+      <img src="img/lodge/bedroom.jpeg">
+      <img src="img/lodge/fridge.jpeg">
+      <img src="img/lodge/living_room.jpeg">
+
+    </div>
+  </div>
+
+  <div class="proposal-story flex-center" id="bridal-section">
+
+    <div class="text-wrapper">
+      <h1>Bridal Shower</h1>
+      <img src="img/flowers.png" class="invite-section-image" alt="rings" >
+
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a
+        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum. </p>
+    </div>
+  </div>
+
+
+  <!--  <div class="story-body">-->
+  <!--    <img src="img/fallchair.png" class="body-image flex-half-part">-->
+
+  <!--    <div class="story-text flex-half-part">-->
+  <!--      <h2>Thank you for celebrating with us!</h2>-->
+  <!--      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
+  <!--        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make-->
+  <!--        a-->
+  <!--        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,-->
+  <!--        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing-->
+  <!--        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions-->
+  <!--        of Lorem Ipsum. </p>-->
+  <!--    </div>-->
+  <!--  </div>-->
+
+  <div class="body-flex">
+    <div class="body-wrapper">
+
+
+      <h2>Questions & Answers</h2>
+      <h3>Do I need to find a hotel?</h3>
+      <p>No need, we will have a room for everyone in our two massing lodges. </p>
+      <hr/>
+      <h3>What will we be eating?</h3>
+      <p>We will be catering breakfast, lunch, and dinner on Saturday </p>
+      <p>Each room will have a mini fridge along for you to store extra food that you may want. The closest town, Pigeon Forge, is 20 minutes away  </p>
+      <hr/>
+
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a
+        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum. </p>
+      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
+        a
+        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
+        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum. </p>
+
+    </div>
+  </div>
+
+  <div class="wedding-party-wrapper">
+    <h2>Meet the Party</h2>
+    <div class="wedding-party-flex">
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
+        <h3>Jenny Dent</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/abby_oconnor.jpeg" alt="party" class="wedding-party">
+        <h3>Abby O'Connor</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/emily_diener.jpeg" alt="party" class="wedding-party">
+        <h3>Emily Diener</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
+        <h3>Alex Schroeder</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
+        <h3>Anna Kornreich</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
+        <h3>Jenny Kornreich</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
+        <h3>Caroline Kornreich</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/jenna_schwartz.jpeg" alt="party" class="wedding-party">
+        <h3>Jenna Schwartz</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
+        <h3>Adam Kaz</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/steven_abraham.jpeg" alt="party" class="wedding-party">
+        <h3>Steven Abraham</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/saul_rodríguez.jpeg" alt="party" class="wedding-party">
+        <h3>Saul Rodriguez</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/kyle_nixon.jpeg" alt="party" class="wedding-party">
+        <h3>Kyle Nixon</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
+        <h3>Robert Zajac</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
+        <h3>Divij Nagpaul</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
+        <h3>Michael Dent</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
+        <h3>Scott Dent</h3>
+        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
+      </div>
+
+
+    </div>
+
+  </div>
+
+  <div class="body-flex">
+    <p>Made by Drew Schwartz</p>
+  </div>
+
+  <script src="js/vendor/modernizr-3.11.2.min.js"></script>
+  <script src="js/plugins.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<!--  <script>-->
+<!--    window.ga = function () {-->
+<!--      ga.q.push(arguments)-->
+<!--    };-->
+<!--    ga.q = [];-->
+<!--    ga.l = +new Date;-->
+<!--    ga('create', 'UA-XXXXX-Y', 'auto');-->
+<!--    ga('set', 'anonymizeIp', true);-->
+<!--    ga('set', 'transport', 'beacon');-->
+<!--    ga('send', 'pageview')-->
+<!--  </script>-->
+<!--  <script src="https://www.google-analytics.com/analytics.js" async></script>-->
+</div>
+</body>
+
+</html>
