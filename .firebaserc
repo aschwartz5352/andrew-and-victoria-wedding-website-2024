@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "victoriaanddrew-df6c7"
-  }
+    "default": "victoriaanddrew-df6c7",
+    "prod": "drewandvictoria2024"
+  },
+  "targets": {},
+  "etags": {}
 }

@@ -1,30 +1,8 @@
-/*! HTML5 Boilerplate v8.0.0 | MIT License | https://html5boilerplate.com/ */
-
-/* main.css 2.1.0 | MIT License | https://github.com/h5bp/main.css#readme */
-/*
- * What follows is the result of much research on cross-browser styling.
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- */
-
-/* ==========================================================================
-   Base styles: opinionated defaults
-   ========================================================================== */
 
 html {;
   font-size: 1em;
   line-height: 1.4;
 }
-
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Vendor-prefixed and regular ::selection selectors cannot be combined:
- * https://stackoverflow.com/a/16982510/7133471
- *
- * Customize the background color to match your design.
- */
 
 ::-moz-selection {
   background: #b3d4fc;
@@ -36,10 +14,6 @@ html {;
   text-shadow: none;
 }
 
-/*
- * A better looking default horizontal rule
- */
-
 hr {
   display: block;
   height: 1px;
@@ -49,11 +23,6 @@ hr {
   padding: 0;
 }
 
-/*
- * Remove the gap between audio, canvas, iframes,
- * images, videos and the bottom of their containers:
- * https://github.com/h5bp/html5-boilerplate/issues/440
- */
 
 audio,
 canvas,
@@ -64,9 +33,6 @@ video {
   vertical-align: middle;
 }
 
-/*
- * Remove default fieldset styles.
- */
 
 fieldset {
   border: 0;
@@ -74,39 +40,12 @@ fieldset {
   padding: 0;
 }
 
-/*
- * Allow only vertical resizing of textareas.
- */
-
-textarea {
-  resize: vertical;
-}
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-/*
- * Hide visually and from screen readers
- */
 
 .hidden,
 [hidden] {
   display: none !important;
 }
 
-/*
- * Hide only visually, but have it available for screen readers:
- * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
- *
- * 1. For long content, line feeds are not interpreted as spaces and small width
- *    causes content to wrap 1 word per line:
- *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
- */
 
 .sr-only {
   border: 0;
@@ -121,11 +60,6 @@ textarea {
   /* 1 */
 }
 
-/*
- * Extends the .sr-only class to allow the element
- * to be focusable when navigated to via the keyboard:
- * https://www.drupal.org/node/897638
- */
 
 .sr-only.focusable:active,
 .sr-only.focusable:focus {
@@ -267,37 +201,22 @@ h1, p {
   margin: 8px 0;
 }
 
-
 .flex-compat {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-.image-container {
-  height: 60vw;
-  background-image: url('imgpeg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: top;
-  background-size: cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
 .centered-text {
   position: absolute;
-  top: 25%;
+  top: 31%;
+  color: #fff;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.7); /* Optional: Add a semi-transparent background for better readability */
-  font-size: 30px;
+  font-size: 37px;
   font-weight: 900;
   width: 547px;
   border-radius: 25px;
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
   z-index: 20;
 }
 
@@ -314,7 +233,7 @@ h1, p {
 
 @media (max-width: 768px) {
   .centered-text {
-    font-size: 18px;
+    font-size: 23px;
     width: 320px;
     padding-left: 10px;
   }
@@ -378,7 +297,7 @@ h1, p {
 }
 
 
-.body-flex {
+.body-flex, #end-section {
   background-color: #23282f;
   color: #eee;
 }
@@ -411,7 +330,7 @@ h1, p {
 }
 
 
-.friend-image-wrapper {
+#friend-image-wrapper {
   display: flex;
   justify-content: space-around;
   margin: 24px;
@@ -451,9 +370,11 @@ h1, p {
   flex-wrap: wrap;
   align-items: center;
   padding: 0 20px 0 20px;
-  /*background-color: #fcf1d4;*/
 }
 
+#ceremony-reception-icon-wrapper {
+  display: flex;
+}
 
 .date-wrapper {
   margin: 24px 26px;
@@ -467,7 +388,7 @@ h1, p {
   z-index: 10;
   transition: all 0.2s ease-out;
   flex: 1;
-  max-width: 370px;
+  max-width: 312px;
   cursor: pointer;
 }
 
@@ -596,11 +517,11 @@ h1, p {
   -moz-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
-#announcement{
+#announcement {
   margin: 20px 0 0 0;
 }
 
-.results-split-line{
+.results-split-line {
   margin: 0;
 }
 
@@ -644,25 +565,38 @@ h1, p {
   flex-direction: row;
 }
 
-#schloss-video{
+#schloss-video {
   width: 520px;
   height: 780px;
   object-fit: cover;
 }
 
-@media(max-width: 920px){
-  #schloss-video{
+@media (max-width: 920px) {
+  #schloss-video {
     display: none;
   }
 }
 
 .text-wrapper {
+  max-width: 714px;
+  color: #0e0954;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.title-text-wrapper {
   max-width: 600px;
   color: #0e0954;
   margin-right: auto;
   margin-left: auto;
-  padding: 20px 40px;
+  padding: 20px 10px;
   text-align: center;
+}
+
+.event-info-title {
+  font-size: 44px;
 }
 
 
@@ -684,7 +618,6 @@ h1, p {
 .story-text {
   font-size: 18px;
   line-height: 1.5;
-  text-align: justify;
 }
 
 
@@ -694,6 +627,14 @@ h1, p {
   align-items: center;
   flex-direction: column;
 }
+
+.flex-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+}
+
 
 #body-wrapper {
   overflow-y: hidden;
@@ -758,6 +699,12 @@ input:focus + .input-container {
   max-height: 290px;
 }
 
+.paragraph-text {
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+
 .carousel-container {
   width: 100%;
   overflow: hidden;
@@ -767,11 +714,10 @@ input:focus + .input-container {
 
 .carousel {
   display: flex;
-  transition: transform 0.3s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .carousel img {
-  width: 100%;
   height: 550px;
   max-width: 700px;
   object-fit: cover;
@@ -782,7 +728,7 @@ input:focus + .input-container {
   .carousel img {
     height: 300px;
     padding: 0;
-
+    max-width: 100%;
   }
 }
 
@@ -792,7 +738,7 @@ input:focus + .input-container {
   text-align: center;
 }
 
-.wedding-party-flex{
+.wedding-party-flex {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -800,7 +746,7 @@ input:focus + .input-container {
   flex-wrap: wrap;
 }
 
-.wedding-party-bio{
+.wedding-party-bio {
   max-width: 334px;
   display: flex;
   flex-direction: column;
@@ -813,30 +759,99 @@ input:focus + .input-container {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-.wedding-party-bachelorette{
+.wedding-party-bachelorette {
   box-shadow: 0 1px 7px rgb(113 20 160 / 50%);
 }
 
-.wedding-party-bachelor{
+.wedding-party-bachelor {
   box-shadow: 0 1px 7px rgb(24 106 171 / 50%);
 }
 
-.wedding-party{
+.wedding-party {
   height: 200px;
   width: 200px;
   align-self: center;
-  border-radius: 40px;
+  border-radius: 100px;
   object-fit: cover;
   margin-left: 12px;
 }
 
-.invite-section-image{
+.invite-section-image {
   width: 128px;
   background-color: #fff;
   padding: 12px;
   border-radius: 26px;
-  /* position: absolute; */
-  /* left: 0; */
   margin: 2px 50px;
   box-shadow: 0 1px 7px rgba(0, 0, 0, 0.5);
+}
+
+.cr-icon {
+  width: 114px !important;
+  margin: 0px 14px !important;
+}
+
+.faq-emoji {
+  font-size: 35px;
+  text-align: center;
+  margin: 0 12px 0 0;
+}
+
+#registry-section {
+  /*background: linear-gradient(90deg, #3498db, #e09de6);*/
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.animated-gradient {
+  width: 100%;
+  background: linear-gradient(90deg, #3498db, #e09de6, #3498db);
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s linear infinite;
+}
+
+/* Keyframes for the animation */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: -100% 0%;
+  }
+}
+
+#registry-button {
+  margin: 24px 26px;
+  border-radius: 25px;
+  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px 0;
+  text-align: center;
+  z-index: 10;
+  transition: all 0.2s ease-out;
+  flex: 1;
+  max-width: 272px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#registry-icon {
+  width: 176px;
+}
+
+#registry-button-text {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+  margin-top: 16px;
+}
+
+#registry-button:hover {
+  box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
 }

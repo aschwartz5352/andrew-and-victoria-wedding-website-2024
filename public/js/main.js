@@ -1,4 +1,5 @@
 window.onload = function () {
+
   // Replace 'popup.html' with the URL of the popup content you want to display
   clearInvites();
 
@@ -19,7 +20,7 @@ window.onload = function () {
     }
   }
 
-  document.getElementById('schloss-video').playbackRate = 0.6;
+  // document.getElementById('schloss-video').playbackRate = 0.6;
   document.getElementById('proposal-video').playbackRate = 1.1;
 
   const targetImage = document.getElementById("proposal-knee-image");
@@ -31,15 +32,17 @@ window.onload = function () {
     const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
     const mediaQuery = window.matchMedia("(max-width: 768px)");
     const heightLimit = mediaQuery.matches ? 600 : 850;
-    if(currentScroll <= heightLimit){
-      const scrollDifference = currentScroll - previousScroll;
-      if(targetVideo.style.display === "none"){
+    if (currentScroll <= heightLimit) {
+      const scrollDifference = Math.floor(currentScroll - previousScroll);
+      if (targetVideo.style.display === "none") {
         const newImageHeight = Math.min(heightLimit, Math.max(targetImage.clientHeight - scrollDifference, 100)); // Adjust the minimum height as needed
         targetImage.style.height = newImageHeight + "px";
+        targetVideo.style.height = newImageHeight + "px";
 
-      }else{
+      } else {
         const newVideoHeight = Math.min(heightLimit, Math.max(targetVideo.clientHeight - scrollDifference, 100)); // Adjust the minimum height as needed
         targetVideo.style.height = newVideoHeight + "px";
+        targetImage.style.height = newVideoHeight + "px";
 
       }
 
@@ -68,9 +71,9 @@ var guests = {
 
 var bachelorPartyGuests = ["drew schwartz", "scottie dent", "michael dent", "scott resetar", "will kornreich", "adam kaz", "robbie ernst", "steven abraham", "saul rodríguez", "kyle nixon", "robert zajac", "divij nagpaul", "arturo woodward-montes"];
 var bachelorettePartyGuests = ["victoria dent", "jenny dent", "willa stevenson", "anna kornreich", "jenny kornreich", "caroline kornreich", "taylor leen", "ava folloni", "jenna schwartz", "molly kaz", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "emma pire", "julia papanek", "peyton moore", "nora reimer", "riley maloney", "mia bertaud", "cordelia grob", "callie rukavania", "lucy", "kari hafer", "chelsea bass", "jennifer chou"];
-var ceremonyGuests = ["drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill annybf", "jenny kornreich", "caroline kornreich", "gail chelius", "steven schwartz", "denise schwartz", "jenna schwartz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "cordelia grob", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul"];
+var ceremonyGuests = ["drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill annybf", "jenny kornreich", "caroline kornreich", "gail chelius", "steve schwartz", "denise schwartz", "jenna schwartz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "cordelia grob", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul"];
 
-var receptionGuests = ["drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill annybf", "jenny kornreich", "caroline kornreich", "gail chelius", "mike chelius", "mike's gf", "jean leen", "kevin leen", "taylor leen", "cam leen", "cam's gf", "larry folloni", "michael folloni", "jimmie folloni", "bobby folloni", "ava folloni", "michael davis", "bernie kolasa", "steven schwartz", "denise schwartz", "jenna schwartz", "adam kaz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "susan ludwig", "alan ludwig", "amy denenberg", "greg denenberg", "rebecca lipson", "cheryl schwartz", "lisa mandl", "lezlie breezin", "todd breezin", "paul ludwig", "daphna ludwig", "danny schwartz", "jo schwartz", "susan lipson", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "emma pire", "frank bond", "julia papanek", "peyton moore", "dylan bragers", "nora reimer", "adam boik", "riley maloney", "mia bertaud", "evan patel", "nathan pitchaikani", "charlie huang", "victoria ludolph", "nicholas ludolph", "cordelia grob", "henry grob", "david grob", "elizabeth grob", "clarice shin", "kim schroeder", "kevin schroeder", "alec schroeder", "christian schroeder", "karen diener?", "mr. diener?", "emily's brother?", "mr. cerniglia?", "nicole cerniglia?", "mrs. cerniglia?", "jane pire", "tim pire", "abby pire", "renny pire", "callie rukavania", "ben (callie's fiancé)", "candace liu", "santiago maitret rodríguez", "ricardo bastin", "dr. danny lazar", "mara lazar", "ari lazar", "cami lazar", "emma lazar", "ryan (emma's boyfriend)", "michael pfeifer", "jennifer pfeifer", "jordan pfeifer", "michelle pfeifer", "david pfeifer", "david pfeifer guest?", "amy birtman", "scott birtman", "norma berg (oldest family friend)", "chris bagat?", "betty bagat?", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul", "arturo woodward-montes", "laurel chamberlin", "lucy lastname", "kari hafer", "chelsea bass", "chris bass", "jennifer chou", "logan cebrzynski", "arianna bastys", "charlie swarts"];
+var receptionGuests = ["drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill annybf", "jenny kornreich", "caroline kornreich", "gail chelius", "mike chelius", "mike's gf", "jean leen", "kevin leen", "taylor leen", "cam leen", "cam's gf", "larry folloni", "michael folloni", "jimmie folloni", "bobby folloni", "ava folloni", "michael davis", "bernie kolasa", "steve schwartz", "denise schwartz", "jenna schwartz", "adam kaz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "susan ludwig", "alan ludwig", "amy denenberg", "greg denenberg", "rebecca lipson", "cheryl schwartz", "lisa mandl", "lezlie breezin", "todd breezin", "paul ludwig", "daphna ludwig", "danny schwartz", "jo schwartz", "susan lipson", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "emma pire", "frank bond", "julia papanek", "peyton moore", "dylan bragers", "nora reimer", "adam boik", "riley maloney", "mia bertaud", "evan patel", "nathan pitchaikani", "charlie huang", "victoria ludolph", "nicholas ludolph", "cordelia grob", "henry grob", "david grob", "elizabeth grob", "clarice shin", "kim schroeder", "kevin schroeder", "alec schroeder", "christian schroeder", "karen diener?", "mr. diener?", "emily's brother?", "mr. cerniglia?", "nicole cerniglia?", "mrs. cerniglia?", "jane pire", "tim pire", "abby pire", "renny pire", "callie rukavania", "ben (callie's fiancé)", "candace liu", "santiago maitret rodríguez", "ricardo bastin", "dr. danny lazar", "mara lazar", "ari lazar", "cami lazar", "emma lazar", "ryan (emma's boyfriend)", "michael pfeifer", "jennifer pfeifer", "jordan pfeifer", "michelle pfeifer", "david pfeifer", "david pfeifer guest?", "amy birtman", "scott birtman", "norma berg (oldest family friend)", "chris bagat?", "betty bagat?", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul", "arturo woodward-montes", "laurel chamberlin", "lucy lastname", "kari hafer", "chelsea bass", "chris bass", "jennifer chou", "logan cebrzynski", "arianna bastys", "charlie swarts"];
 
 var bridalShowerGuests = ["drew schwartz", "victoria dent", "debbie dent", "jenny dent", "willa stevenson", "karen kornreich", "anna kornreich", "jenny kornreich", "caroline kornreich", "gail chelius", "jean leen", "taylor leen", "ava folloni", "denise schwartz", "jenna schwartz", "molly kaz", "jill kaz", "anita kaz", "pauline schwartz", "debra schwartz", "susan ludwig", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "emma pire", "julia papanek", "peyton moore", "nora reimer", "riley maloney", "mia bertaud", "victoria ludolph", "cordelia grob", "kiim schroeder", "callie rukavania", "candace liu", "lucy", "kari hafer", "chelsea bass", "jennifer chou"]
 var guestImages = {
@@ -211,12 +214,12 @@ function setImage(name) {
   checkImageExists(
     imageUrl,
     function () {
-      document.getElementById("friend-image").style.display = "block";
+      document.getElementById("friend-image-wrapper").style.display = "block";
       document.getElementById("friend-image").src = imageUrl;
 
     },
     function () {
-      document.getElementById("friend-image").style.display = "none";
+      document.getElementById("friend-image-wrapper").style.display = "none";
 
     }
   );
@@ -320,7 +323,7 @@ document.getElementById("change-name").onclick = function () {
 
 function clearInvites() {
   document.getElementById("not-found").style.display = "none";
-  document.getElementById("friend-image").style.display = "none";
+  document.getElementById("friend-image-wrapper").style.display = "none";
 
   document.getElementById("bachelor-party-invite").style.display = "none";
   document.getElementById("bachelorette-party-invite").style.display = "none";
@@ -338,22 +341,28 @@ document.addEventListener("DOMContentLoaded", function () {
     video.style.display = "none";
     image.style.display = "block";
   });
+
+  document.getElementById("behind-video-spacer").addEventListener("click", function (event) {
+    video.play();
+    video.style.display = "block";
+    image.style.display = "none";
+  });
 });
 
 
 document.addEventListener("DOMContentLoaded", function () {
   const carousel = document.querySelector(".carousel");
   const images = carousel.querySelectorAll("img");
+
+
   let currentIndex = 0;
 
   function showSlide(index) {
-    // carousel.style.transform = `translateX(-${index * 100}%)`;
     carousel.style.transform = `translateX(-${index * images[0].clientWidth}px)`;
-
   }
 
-  function nextSlide() {
-    if (currentIndex + 1 >= carousel.children.length - 2) {
+  function nextSlide(slide) {
+    if (slide >= carousel.children.length - 2) {
       currentIndex = 0;
     } else {
       currentIndex = (currentIndex + 1) % (carousel.children.length);
@@ -362,23 +371,66 @@ document.addEventListener("DOMContentLoaded", function () {
     showSlide(currentIndex);
   }
 
-  function prevSlide() {
-    currentIndex = (currentIndex - 1 + carousel.children.length) % carousel.children.length;
+  function autoNextSlide() {
+    if (currentIndex >= carousel.children.length - 3) {
+      currentIndex = 0;
+    } else {
+      currentIndex = (currentIndex + 1) % (carousel.children.length);
+    }
     showSlide(currentIndex);
   }
 
-  setInterval(nextSlide, 3500); // Automatically change slide every 3 seconds
+  function prevSlide(slide) {
+    if (slide <= 0) {
+      currentIndex = 0;
+    } else {
+      currentIndex--;
+      showSlide(currentIndex);
+    }
+  }
+
+  var interval = setInterval(autoNextSlide, 3500); // Automatically change slide every 3 seconds
+
+  let startX = 0;
+  let endX = 0;
+
+  for (var i = 0; i < images.length; i++) {
+    let slideNum = i;
+    images[i].addEventListener('touchend', () => {
+
+      endX = event.changedTouches[0].clientX;
+      if (Math.abs(endX - startX) < 20) {
+        return;
+      }
+      if (endX > startX) {
+        prevSlide(slideNum);
+      } else {
+        nextSlide(slideNum);
+      }
+      clearInterval(interval);
+    });
+
+    images[i].addEventListener('touchstart', () => {
+      startX = event.touches[0].clientX;
+    });
+
+    images[i].addEventListener('click', () => {
+      nextSlide(slideNum);
+      clearInterval(interval);
+    });
+  }
+  ;
 });
 
-document.getElementById("ceremony-invite").onclick = function(){
+document.getElementById("ceremony-invite").onclick = function () {
   smoothScroll("ceremony-section");
 }
 
-document.getElementById("bridal-shower-invite").onclick = function(){
+document.getElementById("bridal-shower-invite").onclick = function () {
   smoothScroll("bridal-section");
 }
 
-document.getElementById("reception-invite").onclick = function(){
+document.getElementById("reception-invite").onclick = function () {
   smoothScroll("ceremony-section");
 }
 
@@ -394,12 +446,12 @@ function findPos(obj) {
 }
 
 
-function smoothScroll(sectionId){
+function smoothScroll(sectionId) {
   isNormalScrolling = false;
   var start = document.documentElement.scrollTop;
   var currentPos = start;
-  var end = findPos(document.getElementById(sectionId))+1;
-  if(end > 60){
+  var end = findPos(document.getElementById(sectionId)) + 1;
+  if (end > 60) {
     end -= 60;
   }
 
@@ -408,7 +460,7 @@ function smoothScroll(sectionId){
   var j = 10;
 
   var direction = 1;
-  if(start > end){
+  if (start > end) {
     direction = -1;
   }
 
@@ -417,21 +469,21 @@ function smoothScroll(sectionId){
   var maxFrames = 80;
 
   var isSlowing = false;
-  var animation = setInterval(function(){
+  var animation = setInterval(function () {
     maxFrames--;
-    window.scroll(0,currentPos);
+    window.scroll(0, currentPos);
     t += 0.05;
 
-    if(isSlowing){
+    if (isSlowing) {
       velocity -= acc;
       currentPos += velocity;
-    }else{
-      currentPos += direction * (velocity*t + acc*t*t/2 + j*t*t*t/6);
+    } else {
+      currentPos += direction * (velocity * t + acc * t * t / 2 + j * t * t * t / 6);
     }
     lastY = currentPos;
 
-    if(direction*currentPos >= direction*end || maxFrames <= 0){
-      window.scroll(0,end);
+    if (direction * currentPos >= direction * end || maxFrames <= 0) {
+      window.scroll(0, end);
       isNormalScrolling = true;
       clearInterval(animation);
     }

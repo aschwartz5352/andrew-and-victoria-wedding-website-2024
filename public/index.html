@@ -10,14 +10,33 @@
 
   <meta property="og:title" content="Victoria & Andrew's Wedding">
   <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
+  <meta property="og:url" content="https://drewandvictoria2024.web.app">
+  <meta property="og:image" content="https://drewandvictoria2024.web.app/img/social_share.jpeg">
 
-<!--  <link rel="stylesheet"-->
-<!--        href="https://fonts.googleapis.com/css?family=Playfair%20Display">-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Josefin+Sans:wght@300&display=swap"
+    rel="stylesheet">
+  <!--  <link rel="stylesheet"-->
+  <!--        href="https://fonts.googleapis.com/css?family=Playfair%20Display">-->
   <style>
-    h1, h2, h3, h4, h5, h6, p, a, input, button {
-      font-family:  sans-serif;
+    h1, #wedding-date {
+      font-family: 'Dancing Script', serif;
+      text-align: center;
+      opacity: 0.85;
+    }
+
+    h2, h3, h4, h5, h6, p, a, input, button {
+      font-family: 'Josefin Sans', sans-serif;
+    }
+
+    #wedding-date {
+      font-size: 20px;
+    }
+
+    p {
+      font-size: 18px;
     }
   </style>
 
@@ -63,9 +82,6 @@
     </div>
   </div>
 
-  <!--  <div class="image-container">-->
-
-  <!--  </div>-->
 
   <video autoplay muted playsinline id="proposal-video">
     <source src="img/kneevideo2.mp4" type="video/mp4">
@@ -75,9 +91,8 @@
   <img src="img/kneedark.jpeg" class="knee-image" id="proposal-knee-image" alt="knee" style="display: none">
   <div class="centered-text">
     <h1 id="victoria-andrew">Victoria & Andrew</h1>
+    <p id="wedding-date">09.01.24</p>
   </div>
-  <!--  <img src="img/paw.png" class="paw" alt="paw" style="margin: 14px 55px">-->
-  <!--  <img src="img/paw.png" class="paw" alt="paw" style="margin: 60px 4px">-->
 
   <div id="behind-video-spacer"></div>
 
@@ -86,22 +101,13 @@
       <h2 class="thank-you-message" id="welcome-name">Welcome Drew!</h2>
       <a id="change-name">Not Drew? Click here</a>
 
-      <div class="friend-image-wrapper">
-        <img src="img/fjordring_c.jpeg" id="friend-image" alt="party" style="display: none">
-        <p class="thank-you-story">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-          Ipsum
-          has
-          been the industry's
-          standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to
-          make
-          a
-          type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged.
-          of Lorem Ipsum. </p>
+      <div id="friend-image-wrapper" style="display: none">
+        <img src="img/fjordring_c.jpeg" id="friend-image" alt="party">
+        <!--        <p class="thank-you-story">We are so excited to celebrate with you! Here is a photo </p>-->
       </div>
 
 
-      <h2 class="thank-you-message">You are invited to:</h2>
+      <h2 class="thank-you-message">Celebrate With Us!</h2>
 
     </div>
 
@@ -112,9 +118,9 @@
 
         <div class="date-info">
           <h2 class="party-type-name">Bachelor Party</h2>
-          <h3 class="party-date">March 2nd, 2025 </h3>
-          <p class="address"> 1200 S DuSable Lk Shr Dr,</p>
-          <p class="address"> Chicago, IL 60605</p>
+          <h3 class="party-date">TBD </h3>
+          <p class="address"></p>
+          <p class="address"> Chicago, IL </p>
         </div>
       </div>
 
@@ -123,9 +129,9 @@
 
         <div class="date-info">
           <h2 class="party-type-name">Bridal Shower</h2>
-          <h3 class="party-date">March 2nd, 2025 </h3>
-          <p class="address"> 1200 S DuSable Lk Shr Dr,</p>
-          <p class="address"> Chicago, IL 60605</p>
+          <h3 class="party-date">TBD </h3>
+          <p class="address"></p>
+          <p class="address"> Chicago Suburbs</p>
         </div>
       </div>
 
@@ -134,9 +140,9 @@
 
         <div class="date-info">
           <h2 class="party-type-name">Bachelorette Party</h2>
-          <h3 class="party-date">March 2nd, 2025 </h3>
-          <p class="address"> 1200 S DuSable Lk Shr Dr,</p>
-          <p class="address"> Chicago, IL 60605</p>
+          <h3 class="party-date">TBD </h3>
+          <p class="address"></p>
+          <p class="address"> Chicago, IL</p>
         </div>
       </div>
 
@@ -148,9 +154,9 @@
           <div class="date-info">
 
             <h2 class="party-type-name">Ceremony</h2>
-            <h3 class="party-date">September 20th, 2024 </h3>
-            <p class="address"> 1200 S DuSable Lk Shr Dr,</p>
-            <p class="address"> Chicago, IL 60605</p>
+            <h3 class="party-date">September 1st, 2024 </h3>
+            <p class="address"></p>
+            <p class="address"> Wears Valley, TN</p>
           </div>
         </div>
       </div>
@@ -160,58 +166,80 @@
 
         <div class="date-info">
           <h2 class="party-type-name">Reception</h2>
-          <h3 class="party-date">March 2nd, 2025 </h3>
-          <p class="address"> 1200 S DuSable Lk Shr Dr,</p>
-          <p class="address"> Chicago, IL 60605</p>
+          <h3 class="party-date">September 1st, 2024</h3>
+          <p class="address"></p>
+          <p class="address"> Wears Valley, TN</p>
         </div>
       </div>
 
 
     </div>
 
-    <div class="flex-center">
-      <div class="rsvp-button">
-        <a href="https://withjoy.com/victoria-and-drew-2024/rsvp?ecard=true&personId=person-invitee-NbUu3guAR5L6DTwIWGd"
-           target="_blank" id="rsvp-link">RSVP</a>
-      </div>
-    </div>
+    <!--    <div class="flex-center">-->
+    <!--      <div class="rsvp-button">-->
+    <!--        <a href="https://withjoy.com/victoria-and-drew-2024/rsvp?ecard=true&personId=person-invitee-NbUu3guAR5L6DTwIWGd"-->
+    <!--           target="_blank" id="rsvp-link">RSVP</a>-->
+    <!--      </div>-->
+    <!--    </div>-->
 
   </div>
 
   <div class="proposal-story">
-    <video autoplay loop muted playsinline id="schloss-video">
-      <source src="img/palace_breakfast.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <!--    <video autoplay loop muted playsinline id="schloss-video">-->
+    <!--      <source src="img/palace_breakfast.mp4" type="video/mp4">-->
+    <!--      Your browser does not support the video tag.-->
+    <!--    </video>-->
     <div class="text-wrapper">
       <img src="img/paw.png" class="paw" alt="paw" style="margin: -19px 55px">
       <img src="img/paw.png" class="paw" alt="paw" style="margin: 22px 4px">
-      <h2>The Proposal</h2>
-      <p class="story-text">&nbsp;&nbsp;&nbsp;Growing up, Victoria and her family cherished The Sound of Music, finding new meanings in it each year. It became her solace in tough times and a melody of her high school days. When she discovered Drew had never seen it, they decided to travel to Austria for their winter vacation, a place dear to Victoria due to her connection to the movie. Drew saw this as the perfect setting to propose. </p>
+      <h1 class="event-info-title">The Proposal</h1>
+      <p class="story-text">&nbsp;&nbsp;&nbsp;Growing up, Victoria and her family cherished The Sound of Music, finding
+        new meanings in it each year. It became her solace in tough times and a melody of her high school days. When she
+        discovered Drew had never seen it, they decided to travel to Austria for their winter vacation, a place dear to
+        Victoria due to her connection to the movie. Drew saw this as the perfect setting to propose. </p>
       <p class="story-text">&nbsp;&nbsp;&nbsp;
-        He meticulously planned the proposal, opting for the hotel where exterior shots of The Sound of Music were filmed. He secured a unique engagement ring, hired a photographer, and created a photo garland of their relationship. And so their fairytale vacation began, exploring new places as they’d done so many times before. That all changed their first morning at their hotel in Salzburg.</p>
+        He meticulously planned the proposal, opting for the hotel where exterior shots of The Sound of Music were
+        filmed. He secured a unique engagement ring, hired a photographer, and created a photo garland of their
+        relationship. And so their fairytale vacation began, exploring new places as they’d done so many times before.
+        That all changed their first morning at their hotel in Salzburg.</p>
       <p class="story-text">&nbsp;&nbsp;&nbsp;
-        As they roamed the hotel's patio, Victoria discovered pictures of them throughout the years, leading to a heart-shaped arrangement of roses and balloons, asking, "Marry me?" Drew led her through this romantic path, surrounded by the Austrian Tirols, overflowing with heartfelt words. Overwhelmed, Victoria was left speechless until Drew asked the life-changing question: "Victoria, will you marry me?"</p>
+        As they roamed the hotel's patio, Victoria discovered pictures of them throughout the years, leading to a
+        heart-shaped arrangement of roses and balloons, asking, "Marry me?" Drew led her through this romantic path,
+        surrounded by the Austrian Tirols, overflowing with heartfelt words. Overwhelmed, Victoria was left speechless
+        until Drew asked the life-changing question: "Victoria, will you marry me?"</p>
     </div>
   </div>
 
-  <img src="img/walk_c.jpeg" class="body-image">
+  <img src="img/chineseroom.jpeg" class="body-image">
 
 
   <div class="proposal-story flex-center" id="ceremony-section">
 
-    <div class="text-wrapper">
-      <h1>Ceremony</h1>
-      <img src="img/rings.png" class="invite-section-image" alt="rings" >
-      <h2>Let's Celebrate in Sevierville</h2>
+    <div class="title-text-wrapper">
+      <h1 class="event-info-title">Ceremony & Reception</h1>
+      <h3 class="party-date">Checkin - Saturday, August 31st @ 4pm</h3>
+      <h3 class="party-date">Checkout - Tuesday, September 2nd @ 10am</h3>
 
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a
-        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum. </p>
+    </div>
+    <div id="ceremony-reception-icon-wrapper">
+
+      <img src="img/rings.png" class="invite-section-image cr-icon" alt="rings">
+      <img src="img/party.png" class="invite-section-image cr-icon" alt="party">
+    </div>
+    <div class="text-wrapper">
+
+      <h2>Let's Celebrate in Wears Valley</h2>
+
+      <p class="paragraph-text">We have booked 2 large cabins, with a total of 28 bedrooms, next door to each other for
+        3 nights. All main events for you to attend will be on Sunday the 1st. You may stay just for the wedding on
+        Sunday or
+        you can stay with us the full weekend.
+      </p>
+      <p class="paragraph-text">The ceremony will be right outside the cabins on Sunday the 1st. The reception will be
+        hosted in the
+        main cabin in its 2000 sqft
+        living room. </p>
+
     </div>
   </div>
 
@@ -219,183 +247,232 @@
   <div class="carousel-container">
     <div class="carousel">
       <img src="img/lodge/living_room.jpeg">
-      <img src="img/lodge/hottub.jpeg">
+      <img src="img/lodge/outside.jpeg">
       <img src="img/lodge/balcony.jpeg">
       <img src="img/lodge/bedroom.jpeg">
       <img src="img/lodge/fridge.jpeg">
+      <img src="img/lodge/hottub.jpeg">
       <img src="img/lodge/living_room.jpeg">
 
     </div>
   </div>
 
-  <div class="proposal-story flex-center" id="bridal-section">
+  <div id="registry-section" class="animated-gradient">
+    <a href="https://withjoy.com/victoria-and-drew-2024/registry" id="registry-button">
+      <img src="img/giftbox.png" id="registry-icon" alt="party">
 
-    <div class="text-wrapper">
-      <h1>Bridal Shower</h1>
-      <img src="img/flowers.png" class="invite-section-image" alt="rings" >
-
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a
-        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum. </p>
-    </div>
+      <p id="registry-button-text">View registry</p></a>
   </div>
-
-
-  <!--  <div class="story-body">-->
-  <!--    <img src="img/fallchair.png" class="body-image flex-half-part">-->
-
-  <!--    <div class="story-text flex-half-part">-->
-  <!--      <h2>Thank you for celebrating with us!</h2>-->
-  <!--      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's-->
-  <!--        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make-->
-  <!--        a-->
-  <!--        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,-->
-  <!--        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing-->
-  <!--        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions-->
-  <!--        of Lorem Ipsum. </p>-->
-  <!--    </div>-->
-  <!--  </div>-->
 
   <div class="body-flex">
     <div class="body-wrapper">
 
 
-      <h2>Questions & Answers</h2>
-      <h3>Do I need to find a hotel?</h3>
-      <p>No need, we will have a room for everyone in our two massing lodges. </p>
-      <hr/>
-      <h3>What will we be eating?</h3>
-      <p>We will be catering breakfast, lunch, and dinner on Saturday </p>
-      <p>Each room will have a mini fridge along for you to store extra food that you may want. The closest town, Pigeon Forge, is 20 minutes away  </p>
+      <h2>FAQs</h2>
+      <div class="flex-row"><h3 class="faq-emoji">🏨</h3>
+        <h3> Do I need to find a hotel?</h3></div>
+      <p>No need, we will have a room for everyone in our two massive lodges. </p>
+
       <hr/>
 
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a
-        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum. </p>
-      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
-        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make
-        a
-        type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
-        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing
-        Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum. </p>
+      <div class="flex-row"><h3 class="faq-emoji">✈️</h3>
+        <h3> How should we get there?</h3></div>
+      <p>Most people will fly into the Knoxville Airport (McGhee Tyson Airport) and drive or Uber/Lyft 50 minutes
+        directly to the cabins.</p>
+      <p>You are also more than welcome to make the 9-hour drive from Chicago.</p>
+
+      <hr/>
+
+      <div class="flex-row"><h3 class="faq-emoji">🕐</h3>
+        <h3> When should I plan to arrive and leave for your wedding weekend?</h3></div>
+      <p>While you’re welcome to come as early as you’d like and stay as late as you’d like, we rented the cabins from
+        4:00 PM on Saturday, August 31st, 2024 until 10:00 AM on Tuesday, September 3rd, 2024.</p>
+
+      <hr/>
+
+      <div class="flex-row"><h3 class="faq-emoji">🌦️</h3>
+        <h3>Will the ceremony, cocktail hour, and reception take place indoors or outdoors?</h3></div>
+      <p>The ceremony will take place just outside the cabins on the private drive overlooking the Smoky Mountains. The
+        cocktail hour will take place on the patio in the main cabin, which is partially covered but outdoors. The
+        reception will take place inside the dining area in the main cabin, with the option to hang out on the
+        patio. </p>
+
+      <hr/>
+
+      <div class="flex-row"><h3 class="faq-emoji">🥗</h3>
+        <h3> What will we be eating?</h3></div>
+      <p>We will be catering food to the cabins.</p>
+      <p> As people arrive on Saturday night we will have Chipotle catered so that as you arrive you may make whatever
+        you wish for dinner.
+
+        We are getting breakfast catered on Sunday morning, and on Sunday afternoon we’ll have sandwich platters and
+        fruit available.
+        Sunday cocktail hour and dinner will be catered and buffet style, with desserts being the wedding cake, a
+        chocolate fountain, and other sweet treats. The late-night meal for that night is TBD.
+
+        Monday morning and afternoon will be leftovers. For those of you staying Monday night we will order in food of
+        some sort.
+      </p>
+      <p>Each room will have a mini fridge for you to store extra food that you may want. The closest restaurants are 20
+        minutes away in Pigeon Forge.</p>
+
+      <hr/>
+
+      <div class="flex-row"><h3 class="faq-emoji">🚗</h3>
+        <h3> Will there be parking available at the cabins?</h3></div>
+      <p>There are several parking spaces next to the cabins. For overflow parking, some of us may park about a mile
+        away at the cabin rental company’s headquarters. </p>
+
+      <hr/>
+
+      <div class="flex-row"><h3 class="faq-emoji">🏙️</h3>
+        <h3>I’ll be visiting from out of town. What is there to do in the area?</h3></div>
+      <p> First of all, thank you for making the trip out here! While the cabins are remote, there are nearby hiking
+        trails and the cabins themselves will provide plenty of entertainment and things to enjoy.
+        However, if you would like to get away then the nearest town is called Pigeon Forge and is super touristy.
+        Closer to the wedding we’ll provide a list of activities and places we recommend.
+      </p>
+
+      <hr/>
+
+      <div class="flex-row"><h3 class="faq-emoji">🌾</h3>
+        <h3> I have a dietary restriction/allergy. What’s the best way to inform you?</h3></div>
+      <p>Well, you’re with the right crowd! We’ll have plenty of vegetarian and Gluten-Free options throughout the
+        weekend. If you have other dietary restrictions or allergies then you can let us know when you RSVP.</p>
+      <hr/>
+
+
+      <div class="flex-row"><h3 class="faq-emoji">🎉</h3>
+        <h3> When will the reception end? Will there be an after-party? </h3></div>
+      <p>The beautiful thing about not hosting our reception at a traditional wedding venue is that the party never
+        stops! While the party will keep going late into the night on Sunday night in the main cabin, the second cabin
+        will be a quiet cabin. Because everything is happening in the same area, there will be no after-party, just the
+        same party going on all night.</p>
+
+      <hr/>
+
+      <div class="flex-row"><h3 class="faq-emoji">✉️</h3>
+        <h3> What’s the best way to contact you if I have additional questions? </h3></div>
+      <p> Please feel free to text, call, or email Drew or Victoria at any time and we’ll get back to you as quickly as
+        we can.</p>
 
     </div>
   </div>
 
-  <div class="wedding-party-wrapper">
-    <h2>Meet the Party</h2>
-    <div class="wedding-party-flex">
-      <div class="wedding-party-bio wedding-party-bachelorette">
-        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
-        <h3>Jenny Dent</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--  <div class="wedding-party-wrapper">-->
+  <!--    <h2>Meet the Party</h2>-->
+  <!--    <div class="wedding-party-flex">-->
+  <!--      <div class="wedding-party-bio wedding-party-bachelorette">-->
+  <!--        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Jenny Dent</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelorette">
-        <img src="img/friends/abby_oconnor.jpeg" alt="party" class="wedding-party">
-        <h3>Abby O'Connor</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelorette">-->
+  <!--        <img src="img/friends/abby_oconnor.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Abby O'Connor</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelorette">
-        <img src="img/friends/emily_diener.jpeg" alt="party" class="wedding-party">
-        <h3>Emily Diener</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelorette">-->
+  <!--        <img src="img/friends/emily_diener.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Emily Diener</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelorette">
-        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
-        <h3>Alex Schroeder</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelorette">-->
+  <!--        <img src="img/friends/emily_diener.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Kelly Cerniglia</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelorette">
-        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
-        <h3>Anna Kornreich</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelorette">-->
+  <!--        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Alex Schroeder</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelorette">
-        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
-        <h3>Jenny Kornreich</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelorette">-->
+  <!--        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Anna Kornreich</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelorette">
-        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
-        <h3>Caroline Kornreich</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelorette">-->
+  <!--        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Jenny Kornreich</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelorette">
-        <img src="img/friends/jenna_schwartz.jpeg" alt="party" class="wedding-party">
-        <h3>Jenna Schwartz</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelorette">-->
+  <!--        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Caroline Kornreich</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelor">
-        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
-        <h3>Adam Kaz</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelorette">-->
+  <!--        <img src="img/friends/jenna_schwartz.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Jenna Schwartz</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelor">
-        <img src="img/friends/steven_abraham.jpeg" alt="party" class="wedding-party">
-        <h3>Steven Abraham</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
-      <div class="wedding-party-bio wedding-party-bachelor">
-        <img src="img/friends/saul_rodríguez.jpeg" alt="party" class="wedding-party">
-        <h3>Saul Rodriguez</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelor">-->
+  <!--        <img src="img/friends/adam_kaz_groomsmen.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Adam Kaz</h3>-->
+  <!--        <h4>Best Man</h4>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelor">
-        <img src="img/friends/kyle_nixon.jpeg" alt="party" class="wedding-party">
-        <h3>Kyle Nixon</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelor">-->
+  <!--        <img src="img/friends/steven_abraham_groomsmen.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Steven Abraham</h3>-->
+  <!--        <h4>Groomsmen</h4>-->
 
-      <div class="wedding-party-bio wedding-party-bachelor">
-        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
-        <h3>Robert Zajac</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
+  <!--      <div class="wedding-party-bio wedding-party-bachelor">-->
+  <!--        <img src="img/friends/saul_rodríguez.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Saul Rodriguez</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelor">
-        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
-        <h3>Divij Nagpaul</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelor">-->
+  <!--        <img src="img/friends/kyle_nixon_groomsmen.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Kyle Nixon</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelor">
-        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
-        <h3>Michael Dent</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelor">-->
+  <!--        <img src="img/friends/robert_zajak_groomsmen.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Robert Zajac</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-      <div class="wedding-party-bio wedding-party-bachelor">
-        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
-        <h3>Scott Dent</h3>
-        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>
-      </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelor">-->
+  <!--        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Divij Nagpaul</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
+  <!--      <div class="wedding-party-bio wedding-party-bachelor">-->
+  <!--        <img src="img/friends/michael_dent_groomsmen.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Michael Dent</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
 
-    </div>
+  <!--      <div class="wedding-party-bio wedding-party-bachelor">-->
+  <!--        <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">-->
+  <!--        <h3>Scott Dent</h3>-->
+  <!--        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem</p>-->
+  <!--      </div>-->
+  <!--    </div>-->
+  <!--  </div>-->
 
-  </div>
-
-  <div class="body-flex">
+  <div id="end-section" class="flex-center">
+    <p></p>
+    <hr/>
     <p>Made by Drew Schwartz</p>
+    <!--    <a href="https://www.flaticon.com/free-icons/gift" title="gift icons">Gift icons created by Freepik - Flaticon</a>-->
   </div>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
@@ -403,18 +480,18 @@
   <script src="js/main.js"></script>
 
   <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-<!--  <script>-->
-<!--    window.ga = function () {-->
-<!--      ga.q.push(arguments)-->
-<!--    };-->
-<!--    ga.q = [];-->
-<!--    ga.l = +new Date;-->
-<!--    ga('create', 'UA-XXXXX-Y', 'auto');-->
-<!--    ga('set', 'anonymizeIp', true);-->
-<!--    ga('set', 'transport', 'beacon');-->
-<!--    ga('send', 'pageview')-->
-<!--  </script>-->
-<!--  <script src="https://www.google-analytics.com/analytics.js" async></script>-->
+  <!--  <script>-->
+  <!--    window.ga = function () {-->
+  <!--      ga.q.push(arguments)-->
+  <!--    };-->
+  <!--    ga.q = [];-->
+  <!--    ga.l = +new Date;-->
+  <!--    ga('create', 'UA-XXXXX-Y', 'auto');-->
+  <!--    ga('set', 'anonymizeIp', true);-->
+  <!--    ga('set', 'transport', 'beacon');-->
+  <!--    ga('send', 'pageview')-->
+  <!--  </script>-->
+  <!--  <script src="https://www.google-analytics.com/analytics.js" async></script>-->
 </div>
 </body>
 
