@@ -407,12 +407,11 @@ h1, p {
 
 .party-type-icon {
   width: 224px;
-  margin: 0 4vw;
   transition: all 0.2s ease-out;
 }
 
 .body-wrapper {
-  max-width: 600px;
+  max-width: 640px;
 }
 
 @media (max-width: 1000px) {
@@ -700,7 +699,7 @@ input:focus + .input-container {
 }
 
 .paragraph-text {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.5;
   font-weight: bold;
 }
@@ -751,7 +750,7 @@ input:focus + .input-container {
   display: flex;
   flex-direction: column;
   text-align: center;
-  padding: 18px 0;
+  padding: 18px 28px;
   color: #333;
   background-color: #fff;
   border-radius: 27px;
@@ -776,6 +775,10 @@ input:focus + .input-container {
   margin-left: 12px;
 }
 
+.wedding-party-title{
+  margin-bottom: -6px;
+}
+
 .invite-section-image {
   width: 128px;
   background-color: #fff;
@@ -798,10 +801,10 @@ input:focus + .input-container {
 
 #registry-section {
   /*background: linear-gradient(90deg, #3498db, #e09de6);*/
-  height: 350px;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .animated-gradient {
@@ -833,9 +836,9 @@ input:focus + .input-container {
   z-index: 10;
   transition: all 0.2s ease-out;
   flex: 1;
-  max-width: 272px;
   cursor: pointer;
   text-decoration: none;
+  width: 248px;
 }
 
 #registry-icon {
@@ -854,4 +857,13 @@ input:focus + .input-container {
   -webkit-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
   background-color: #fff;
+}
+
+#registry-message{
+  max-width: 500px;
+  text-align: center;
+  color: #ddd;
+  font-weight: bold;
+  font-size: 22px;
+
 }
