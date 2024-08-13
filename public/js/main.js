@@ -1,5 +1,7 @@
 window.onload = function () {
 
+  const triggerDiv = document.getElementById('invite-wrapper');
+
   // Replace 'popup.html' with the URL of the popup content you want to display
   clearInvites();
 
@@ -50,10 +52,48 @@ window.onload = function () {
       previousScroll = currentScroll;
     }
 
+    // if (isInViewport(triggerDiv)) {
+    //   // Trigger animations when the trigger div is in the viewport
+    //   // Remove the event listener to prevent re-triggering
+    //   // window.removeEventListener('scroll', handleScroll);
+    // }
+
   }
 
   window.addEventListener("scroll", adjustDivHeight);
-};
+
+
+// Function to start staggered animations
+
+
+// Call the function to start staggered animations
+  startStaggeredAnimations();
+
+}
+
+function startStaggeredAnimations() {
+  const inviteDivs = document.querySelectorAll('.visible-invite');
+
+  inviteDivs.forEach((div, index) => {
+    // Delay each animation by 0.5 seconds times the index
+    const delay = index * 150; // 500 milliseconds = 0.5 seconds
+    setTimeout(() => {
+      // Apply animation class to each div
+      div.classList.add('bounce');
+    }, delay);
+  });
+}
+
+function isInViewport(element) {
+  const rect = element.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
+
 
 // G -> bachelor party, ceremony, reception
 // B -> bachelorette party, ceremony, bridal shower, reception
@@ -69,13 +109,15 @@ var guests = {
   "charlie": "R",
 };
 
-var bachelorPartyGuests = ["drew schwartz", "scottie dent", "michael dent", "scott resetar", "will kornreich", "adam kaz", "robbie ernst", "steven abraham", "saul rodríguez", "kyle nixon", "robert zajac", "divij nagpaul", "arturo woodward-montes"];
-var bachelorettePartyGuests = ["victoria dent", "jenny dent", "willa stevenson", "anna kornreich", "jenny kornreich", "caroline kornreich", "taylor leen", "ava folloni", "jenna schwartz", "molly kaz", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "emma pire", "julia papanek", "peyton moore", "nora reimer", "riley maloney", "mia bertaud", "cordelia grob", "callie rukavania", "lucy", "kari hafer", "chelsea bass", "jennifer chou"];
-var ceremonyGuests = ["drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill annybf", "jenny kornreich", "caroline kornreich", "gail chelius", "steve schwartz", "denise schwartz", "jenna schwartz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "cordelia grob", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul"];
+var bachelorPartyGuests = ["drew schwartz", "scottie dent", "jenna schwartz", "michael dent", "scott resetar", "will kornreich", "adam kaz", "robbie ernst", "steven abraham", "saul rodríguez", "kyle nixon", "robert zajac", "divij nagpaul", "arturo woodward-montes"];
+var bachelorettePartyGuests = ["victoria dent", "jenny dent", "willa stevenson", "anna kornreich", "jenny kornreich", "caroline kornreich", "taylor leen", "ava folloni", "jenna schwartz", "molly kaz", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "emma pire", "julia papanek", "peyton moore", "nora reimer", "riley maloney", "mia bertaud", "cordelia grob", "callie rukavania", "lucy lewis", "kari hafer", "chelsea bass", "jennifer chou"];
+// var ceremonyGuests = ["drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill matthews", "jenny kornreich", "caroline kornreich", "gail chelius", "steve schwartz", "denise schwartz", "jenna schwartz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "cordelia grob", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul"];
 
-var receptionGuests = ["drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill annybf", "jenny kornreich", "caroline kornreich", "gail chelius", "mike chelius", "mike's gf", "jean leen", "kevin leen", "taylor leen", "cam leen", "cam's gf", "larry folloni", "michael folloni", "jimmie folloni", "bobby folloni", "ava folloni", "michael davis", "bernie kolasa", "steve schwartz", "denise schwartz", "jenna schwartz", "adam kaz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "susan ludwig", "alan ludwig", "amy denenberg", "greg denenberg", "rebecca lipson", "cheryl schwartz", "lisa mandl", "lezlie breezin", "todd breezin", "paul ludwig", "daphna ludwig", "danny schwartz", "jo schwartz", "susan lipson", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "emma pire", "frank bond", "julia papanek", "peyton moore", "dylan bragers", "nora reimer", "adam boik", "riley maloney", "mia bertaud", "evan patel", "nathan pitchaikani", "charlie huang", "victoria ludolph", "nicholas ludolph", "cordelia grob", "henry grob", "david grob", "elizabeth grob", "clarice shin", "kim schroeder", "kevin schroeder", "alec schroeder", "christian schroeder", "karen diener?", "mr. diener?", "emily's brother?", "mr. cerniglia?", "nicole cerniglia?", "mrs. cerniglia?", "jane pire", "tim pire", "abby pire", "renny pire", "callie rukavania", "ben (callie's fiancé)", "candace liu", "santiago maitret rodríguez", "ricardo bastin", "dr. danny lazar", "mara lazar", "ari lazar", "cami lazar", "emma lazar", "ryan (emma's boyfriend)", "michael pfeifer", "jennifer pfeifer", "jordan pfeifer", "michelle pfeifer", "david pfeifer", "david pfeifer guest?", "amy birtman", "scott birtman", "norma berg (oldest family friend)", "chris bagat?", "betty bagat?", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul", "arturo woodward-montes", "laurel chamberlin", "lucy lastname", "kari hafer", "chelsea bass", "chris bass", "jennifer chou", "logan cebrzynski", "arianna bastys", "charlie swarts"];
-
-var bridalShowerGuests = ["drew schwartz", "victoria dent", "debbie dent", "jenny dent", "willa stevenson", "karen kornreich", "anna kornreich", "jenny kornreich", "caroline kornreich", "gail chelius", "jean leen", "taylor leen", "ava folloni", "denise schwartz", "jenna schwartz", "molly kaz", "jill kaz", "anita kaz", "pauline schwartz", "debra schwartz", "susan ludwig", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "emma pire", "julia papanek", "peyton moore", "nora reimer", "riley maloney", "mia bertaud", "victoria ludolph", "cordelia grob", "kiim schroeder", "callie rukavania", "candace liu", "lucy", "kari hafer", "chelsea bass", "jennifer chou"]
+var receptionGuests = ["jessi doyle", "june castro", "drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill matthews", "jenny kornreich", "caroline kornreich", "gail chelius", "mike chelius", "mike's gf", "jean leen", "kevin leen", "taylor leen", "cam leen", "cam's gf", "larry folloni", "michael folloni", "jimmie folloni", "bobby folloni", "ava folloni", "michael davis", "bernie kolasa", "steve schwartz", "denise schwartz", "jenna schwartz", "adam kaz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "susan ludwig", "alan ludwig", "amy denenberg", "greg denenberg", "rebecca lipson", "cheryl schwartz", "lisa mandl", "lezlie breezin", "todd breezin", "paul ludwig", "daphna ludwig", "danny schwartz", "jo schwartz", "susan lipson", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "emma pire", "frank bond", "julia papanek", "peyton moore", "dylan bragers", "nora reimer", "adam boik", "riley maloney", "mia bertaud", "evan patel", "nathan pitchaikani", "charlie huang", "victoria ludolph", "nicholas ludolph", "cordelia grob", "henry grob", "david grob", "elizabeth grob", "clarice shin", "kim schroeder", "kevin schroeder", "alec schroeder", "christian schroeder", "karen diener?", "mr. diener?", "emily's brother?", "mr. cerniglia?", "nicole cerniglia?", "mrs. cerniglia?", "jane pire", "tim pire", "abby pire", "renny pire", "callie rukavania", "ben (callie's fiancé)", "candace liu", "santiago maitret rodríguez", "ricardo bastin", "dr. danny lazar", "mara lazar", "ari lazar", "cami valencia", "emma lazar", "ryan (emma's boyfriend)", "michael pfeifer", "jennifer pfeifer", "jordan pfeifer", "michelle pfeifer", "david pfeifer", "david pfeifer guest?", "amy birtman", "scott birtman", "norma berg (oldest family friend)", "chris bagat?", "betty bagat?", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul", "arturo woodward-montes", "laurel chamberlin", "lucy lewis", "kari hafer", "chelsea bass", "chris bass", "jennifer chou", "logan cebrzynski", "arianna bastys", "charlie swarts", "erik beutil", "molly lennon"
+,"sarahrose lesmann", "pau burgoa", "fia foti", "anne pizzini", "tammy luu", "teddy english"];
+var bridalShowerDeniseGuests = ["victoria dent","jenna schwartz","thomas dent","debroah dent","denise schwartz","victoria ludolph","anita kaz","jill kaz","molly kaz","pauline schwartz","mara lazar","emma lazar","cami lazar","jennifer pfeifer","michelle pfeifer","amy birtman","susan ludwig","steve schwartz","susan lipson","jo schwartz","norma berg","debra schwartz"];
+// var bridalShowerDeniseGuests = ["drew schwartz", "victoria dent", "debbie dent", "jenny dent", "willa stevenson", "karen kornreich", "anna kornreich", "jenny kornreich", "caroline kornreich", "gail chelius", "jean leen", "taylor leen", "ava folloni", "denise schwartz", "jenna schwartz", "molly kaz", "jill kaz", "anita kaz", "pauline schwartz", "debra schwartz", "susan ludwig", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "emma pire", "julia papanek", "peyton moore", "nora reimer", "riley maloney", "mia bertaud", "victoria ludolph", "cordelia grob", "kiim schroeder", "callie rukavania", "candace liu", "lucy lewis", "kari hafer", "chelsea bass", "jennifer chou"]
+var bridalShowerKarenGuests = ["victoria dent","jenna schwartz","emily diener","kelly cerniglia","alexandra schroeder","abby o'connor","caroline kornreich","jenny kornreich","anna kornreich","chelsea bass","willa stevenson","jennifer chou","kari hafer","lucy lewis","brittany lau","anne pizzini","nora reimer","candace liu","callie rukavania","peyton moore","julia papanek","jenny resetar","karen kornreich","gail chelius","ava folloni","jean leen","taylor leen","kim schroeder","thomas dent","debroah dent","denise schwartz","william kornreich", "scott dent", "michael dent"];
 var guestImages = {
   "abby o'connor": "abby.jpeg",
   "arturo woodward-montes": "arturo.jpeg",
@@ -86,6 +128,7 @@ var guestImages = {
 var guestMessages = {
   "abby o'connor": ""
 }
+
 
 document.getElementById("search-name-input").addEventListener("keypress", function (event) {
   if (event.key === "Enter") {
@@ -98,9 +141,11 @@ document.getElementById("search-name-input").addEventListener("keypress", functi
 document.getElementById("search-name-button").onclick = function () {
   // get text from input box
   var name = document.getElementById("search-name-input").value;
-
   searchName(name);
 }
+
+
+
 
 //new function
 function searchName(name) {
@@ -108,8 +153,19 @@ function searchName(name) {
 
     var results = findGuest(name.toLowerCase());
     if (results.length == 1) {
-      var lowerCaseName = results[0].split(" ")[0];
-      document.getElementById("welcome-name").innerHTML = "Welcome " + lowerCaseName + "!";
+      var name = results[0];
+      var lowerCaseName = name.split(" ")[0];
+
+      if (results[0] == "abby o'connor") {
+        name = "abby o'Connor";
+      }else if (results[0] == "erik beutil") {
+        name = "erik beütil";
+      }
+
+      clearInvites();
+
+
+      document.getElementById("welcome-name").innerHTML = "Welcome " + name + "!";
       document.getElementById("change-name").innerHTML = "Not " + lowerCaseName + "? Click here";
 
       setImage(results[0].toLowerCase());
@@ -123,6 +179,12 @@ function searchName(name) {
 
       document.getElementById("modal-backdrop").style.display = "none";
 
+      // var guestLink = rsvpIds[name];
+      // console.log(name, guestLink);
+      // document.getElementById("rsvp-link-1").href = "https://withjoy.com/victoria-and-drew-2024/rsvp?ecard=true&personId=" + guestLink;
+      // document.getElementById("rsvp-link-2").href = "https://withjoy.com/victoria-and-drew-2024/rsvp?ecard=true&personId=" + guestLink;
+
+
     } else if (results.length > 1) {
       var resultsHTML = "<hr/>";
       results.map(match => {
@@ -134,10 +196,13 @@ function searchName(name) {
 
       clickableElements.forEach(function (element) {
         element.addEventListener("click", function () {
-          var lowerCaseName = element.innerHTML.split(" ")[0];
-
+          var name = element.innerHTML;
+          var lowerCaseName = name.split(" ")[0];
+          if (name === "abby o'connor") {
+            name = "abby o'Connor";
+          }
           // var name = element.innerHTML.charAt(0).toUpperCase() + element.innerHTML.slice(1);
-          document.getElementById("welcome-name").innerHTML = "Welcome " + lowerCaseName + "!";
+          document.getElementById("welcome-name").innerHTML = "Welcome " + name + "!";
           document.getElementById("change-name").innerHTML = "Not " + lowerCaseName + "? Click here";
 
           setImage(element.innerHTML.toLowerCase());
@@ -153,58 +218,12 @@ function searchName(name) {
         });
       });
 
+
     } else {
       document.getElementById("not-found").style.display = "block";
 
     }
     return;
-    //   if (guests[name.toLowerCase()]) {
-    //     setImage(name.toLowerCase());
-    //
-    //     name = name.charAt(0).toUpperCase() + name.slice(1);
-    //     document.getElementById("welcome-name").innerHTML = "Welcome " + name + "!";
-    //     document.getElementById("change-name").innerHTML = "Not " + name + "? Click here";
-    //     setInvites();
-    //     //
-    //     // switch (guests[name.toLowerCase()]) {
-    //     //   case "G":
-    //     //     document.getElementById("bachelorette-party-invite").style.display = "none";
-    //     //     document.getElementById("bridal-shower-invite").style.display = "none";
-    //     //     break;
-    //     //   case "B":
-    //     //     document.getElementById("bachelor-party-invite").style.display = "none";
-    //     //     break;
-    //     //
-    //     //   case "C":
-    //     //     document.getElementById("bachelor-party-invite").style.display = "none";
-    //     //     document.getElementById("bachelorette-party-invite").style.display = "none";
-    //     //     document.getElementById("bridal-shower-invite").style.display = "none";
-    //     //
-    //     //     break;
-    //     //   case "S":
-    //     //     document.getElementById("bachelor-party-invite").style.display = "none";
-    //     //     document.getElementById("bachelorette-party-invite").style.display = "none";
-    //     //     document.getElementById("ceremony-invite").style.display = "none";
-    //     //     break;
-    //     //   case "R":
-    //     //     document.getElementById("bachelor-party-invite").style.display = "none";
-    //     //     document.getElementById("bachelorette-party-invite").style.display = "none";
-    //     //     document.getElementById("bridal-shower-invite").style.display = "none";
-    //     //     document.getElementById("ceremony-invite").style.display = "none";
-    //     //     break;
-    //     // }
-    //
-    //     document.getElementById("modal-backdrop").style.display = "none";
-    //   } else {
-    //     document.getElementById("not-found").style.display = "block";
-    //     document.getElementById("bachelor-party-invite").style.display = "none";
-    //     document.getElementById("bachelorette-party-invite").style.display = "none";
-    //     document.getElementById("bridal-shower-invite").style.display = "none";
-    //     document.getElementById("ceremony-invite").style.display = "none";
-    //     document.getElementById("reception-invite").style.display = "none";
-    //
-    //   }
-    // }
   }
 }
 
@@ -245,23 +264,36 @@ function checkImageExists(imageUrl, successCallback, errorCallback) {
 function setInvites(name) {
   if (bachelorPartyGuests.includes(name.toLowerCase())) {
     document.getElementById("bachelor-party-invite").style.display = "block";
+    document.getElementById("bachelor-party-invite").classList.add("visible-invite");
   }
 
   if (bachelorettePartyGuests.includes(name.toLowerCase())) {
     document.getElementById("bachelorette-party-invite").style.display = "block";
+    document.getElementById("bachelorette-party-invite").classList.add("visible-invite");
   }
 
-  if (bridalShowerGuests.includes(name.toLowerCase())) {
-    document.getElementById("bridal-shower-invite").style.display = "block";
+  if (bridalShowerKarenGuests.includes(name.toLowerCase())) {
+    document.getElementById("bridal-shower-karen-invite").style.display = "block";
+    document.getElementById("bridal-shower-karen-invite").classList.add("visible-invite");
   }
 
-  if (ceremonyGuests.includes(name.toLowerCase())) {
+  if (bridalShowerDeniseGuests.includes(name.toLowerCase())) {
+    document.getElementById("bridal-shower-denise-invite").style.display = "block";
+    document.getElementById("bridal-shower-denise-invite").classList.add("visible-invite");
+  }
+
+  if (receptionGuests.includes(name.toLowerCase())) {
     document.getElementById("ceremony-invite").style.display = "block";
+    document.getElementById("ceremony-invite").classList.add("visible-invite");
   }
 
   if (receptionGuests.includes(name.toLowerCase())) {
     document.getElementById("reception-invite").style.display = "block";
+    document.getElementById("reception-invite").classList.add("visible-invite");
   }
+
+  startStaggeredAnimations();
+
 }
 
 function findGuest(name) {
@@ -314,10 +346,12 @@ function isSimilar(a, b) {
 
 document.getElementById("change-name").onclick = function () {
   document.getElementById("modal-backdrop").style.display = "flex";
+  document.getElementById("modal").style.display = "block";
+  document.getElementById("monday-itinerary-modal").style.display = "none";
   document.getElementById("search-name-input").focus();
   document.getElementById("search-name-input").select();
 
-  clearInvites();
+  // clearInvites();
 }
 
 
@@ -327,25 +361,61 @@ function clearInvites() {
 
   document.getElementById("bachelor-party-invite").style.display = "none";
   document.getElementById("bachelorette-party-invite").style.display = "none";
-  document.getElementById("bridal-shower-invite").style.display = "none";
+  document.getElementById("bridal-shower-karen-invite").style.display = "none";
+  document.getElementById("bridal-shower-denise-invite").style.display = "none";
   document.getElementById("ceremony-invite").style.display = "none";
   document.getElementById("reception-invite").style.display = "none";
+
+  document.getElementById("bachelor-party-invite").classList.remove("visible-invite");
+  document.getElementById("bachelorette-party-invite").classList.remove("visible-invite");
+  document.getElementById("bridal-shower-karen-invite").classList.remove("visible-invite");
+  document.getElementById("bridal-shower-denise-invite").classList.remove("visible-invite");
+  document.getElementById("reception-invite").classList.remove("visible-invite");
+  document.getElementById("ceremony-invite").classList.remove("visible-invite");
 }
 
 
 document.addEventListener("DOMContentLoaded", function () {
   const video = document.getElementById("proposal-video");
   const image = document.getElementById("proposal-knee-image");
+  let fadeIn = false;
 
   video.addEventListener("ended", function () {
-    video.style.display = "none";
+    image.style.opacity = 0;
     image.style.display = "block";
+    fadeIn = true;
+
+    let opacity = 0;
+    var videoTransitionInterval = setInterval(function () {
+      opacity += 0.03;
+      if (opacity >= 0.98) {
+        image.style.opacity = 1;
+        clearInterval(videoTransitionInterval);
+        video.style.display = "none";
+        fadeIn = false;
+      } else {
+        image.style.opacity = opacity;
+      }
+    }, 10);
+
   });
 
   document.getElementById("behind-video-spacer").addEventListener("click", function (event) {
-    video.play();
-    video.style.display = "block";
-    image.style.display = "none";
+    if (!fadeIn) {
+      video.play();
+      video.style.display = "block";
+      let opacity = 1;
+      var videoTransitionInterval = setInterval(function () {
+        opacity -= 0.03;
+        if (opacity <= 0.01) {
+          image.style.display = "none";
+          image.style.opacity = 1;
+          clearInterval(videoTransitionInterval);
+        } else {
+          image.style.opacity = opacity;
+        }
+      }, 10);
+    }
   });
 });
 
@@ -426,12 +496,65 @@ document.getElementById("ceremony-invite").onclick = function () {
   smoothScroll("ceremony-section");
 }
 
-document.getElementById("bridal-shower-invite").onclick = function () {
+document.getElementById("bridal-shower-karen-invite").onclick = function () {
   smoothScroll("bridal-section");
+}
+
+document.getElementById("explore-link").onclick = function () {
+  smoothScroll("text-over-map");
+  document.getElementById("mobile-nav-links-wrapper").style.display = "none";
 }
 
 document.getElementById("reception-invite").onclick = function () {
   smoothScroll("ceremony-section");
+  document.getElementById("mobile-nav-links-wrapper").style.display = "none";
+}
+
+document.getElementById("mobile-reception-link").onclick = function () {
+  smoothScroll("ceremony-section");
+  document.getElementById("mobile-nav-links-wrapper").style.display = "none";
+}
+
+
+document.getElementById("mobile-faq-link").onclick = function () {
+  smoothScroll("faq-section");
+  document.getElementById("mobile-nav-links-wrapper").style.display = "none";
+}
+
+
+
+document.getElementById("monday-itinerary-link").onclick = function () {
+  document.getElementById("modal-backdrop").style.display = "flex";
+  document.getElementById("monday-itinerary-modal").style.display = "block";
+  document.getElementById("modal").style.display = "none";
+}
+
+
+
+document.getElementById("mobile-wedding-party-link").onclick = function () {
+  smoothScroll("wedding-party-section");
+  document.getElementById("mobile-nav-links-wrapper").style.display = "none";
+}
+
+
+document.getElementById("mobile-registry-link").onclick = function () {
+  smoothScroll("registry-section");
+  document.getElementById("mobile-nav-links-wrapper").style.display = "none";
+}
+
+document.getElementById("mobile-nav-button").onclick = function () {
+  let mobileNavButton = document.getElementById("mobile-nav-links-wrapper");
+  if (mobileNavButton.style.display === 'block') {
+    // document.getElementById("mobile-reception-link").classList.add('bounce');
+    // document.getElementById("mobile-faq-link").classList.add('bounce');
+    // document.getElementById("mobile-wedding-party-link").classList.add('bounce');
+    // document.getElementById("mobile-registry-link").classList.add('bounce');
+
+    mobileNavButton.style.display = "none";
+  } else {
+    mobileNavButton.style.display = "block";
+  }
+
 }
 
 
@@ -488,4 +611,55 @@ function smoothScroll(sectionId) {
       clearInterval(animation);
     }
   }, 10);
+}
+
+let barryCode = "";
+
+document.getElementById("b-button").onclick = function () {
+  barryCode = "b";
+}
+
+document.getElementById("a-button").onclick = function () {
+  if (barryCode === "b") {
+    barryCode = "ba";
+  } else {
+    barryCode = "";
+  }
+
+}
+
+document.getElementById("r-button").onclick = function () {
+  if (barryCode === "ba") {
+    barryCode = "bar";
+  } else if (barryCode === "bar") {
+    barryCode = "barr";
+  } else {
+    barryCode = "";
+  }
+}
+
+document.getElementById("y-button").onclick = function () {
+  if (barryCode === "barr") {
+    barryCode = "barry";
+    document.getElementById("modal-backdrop").style.display = "flex";
+    document.getElementById("modal").style.display = "none";
+    document.getElementById("barry-modal").style.display = "flex";
+  } else {
+    barryCode = "";
+  }
+}
+
+document.getElementById("modal-backdrop").onclick = function () {
+  console.log("asdf");
+  if (document.getElementById("barry-modal").style.display === "flex") {
+    document.getElementById("modal").style.display = "block";
+    document.getElementById("modal-backdrop").style.display = "none";
+    document.getElementById("barry-modal").style.display = "none";
+  } else{
+    if (event.target === this) {
+      this.style.display = 'none';
+    }
+
+  }
+
 }

@@ -237,8 +237,150 @@ h1, p {
     width: 320px;
     padding-left: 10px;
   }
+}
 
 
+#rsvp-nav {
+  position: fixed;
+  /*float: left;*/
+  z-index: 500;
+  width: 100%;
+  color: #eee;
+  padding: 38px;
+  flex-direction: column;
+}
+
+.rsvp-button {
+  height: 44px;
+  width: 100px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 28px;
+  /*margin-top: 16px;*/
+  transition: all 0.2s ease-out;
+}
+
+#monday-itinerary-button {
+  width: 240px !important;
+}
+
+
+.rsvp-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: bold;
+  z-index: 22;
+  cursor: pointer;
+  line-height: 48px;
+  padding: 13px 18px;
+  transition: all 0.2s ease-out;
+}
+
+.rsvp-button:hover {
+  padding: 2px 4px;
+  box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
+}
+
+
+#mobile-nav {
+  margin-top: 160px;
+  position: fixed;
+  /*float: left;*/
+  z-index: 500;
+  width: 100%;
+  color: #eee;
+  padding-left: 38px;
+  flex-direction: column;
+}
+
+
+#mobile-nav-links-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 215px;
+}
+
+#mobile-nav-button {
+  width: 36px;
+  background-color: #fff;
+  border-radius: 8px;
+  opacity: 0.8;
+  padding: 2px 4px;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+  margin-bottom: 10px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+
+.mobile-nav-link {
+  font-size: 22px;
+  font-weight: bold;
+  z-index: 22;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  margin: 12px 0;
+  background-color: #eee;
+  border-radius: 10px;
+  opacity: 0.9;
+  color: #333;
+  padding: 8px 12px 3px 12px;
+  width: fit-content;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+
+#mobile-nav-button:hover, .mobile-nav-link:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+
+#nav {
+  z-index: 11;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: #eee;
+  padding-top: 22px;
+}
+
+.nav-link {
+  font-size: 22px;
+  padding: 0 2%;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease-out;
+  text-decoration: underline;
+}
+
+.nav-link:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+  #mobile-nav, #rsvp-nav {
+    padding-left: 22px;
+    /*display: flex;*/
+  }
+
+  #mobile-nav-button {
+    width: 30px;
+  }
+
+
+  #nav {
+    /*display: none;*/
+  }
 }
 
 
@@ -302,6 +444,10 @@ h1, p {
   color: #eee;
 }
 
+#end-section {
+  padding: 24px;
+}
+
 
 .rsvp-wrapper {
   background: linear-gradient(90deg, #3498db, #e09de6);
@@ -312,7 +458,8 @@ h1, p {
   color: #eee;
   text-transform: capitalize;
   text-align: center;
-  font-size: 40px;
+  font-size: 44px;
+  font-weight: bold;
   padding-top: 36px;
   margin: 0;
 }
@@ -323,6 +470,7 @@ h1, p {
   opacity: 0.7;
   cursor: pointer;
   text-transform: capitalize;
+  z-index: 99;
 }
 
 #change-name:hover {
@@ -372,6 +520,7 @@ h1, p {
   padding: 0 20px 0 20px;
 }
 
+
 #ceremony-reception-icon-wrapper {
   display: flex;
 }
@@ -390,6 +539,27 @@ h1, p {
   flex: 1;
   max-width: 312px;
   cursor: pointer;
+}
+
+.bounce {
+  animation: bounceAnimation 0.5s ease-in-out;
+}
+
+/* Define the keyframes for the bounce animation */
+@keyframes bounceAnimation {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 0.7);
+
+  }
+  50% {
+    transform: translateY(-20px);
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+    background-color: rgba(255, 255, 255, 1);
+
+
+  }
 }
 
 
@@ -421,45 +591,6 @@ h1, p {
   }
 }
 
-
-.rsvp-button {
-  width: 175px;
-  height: 58px;
-  background-color: rgba(255, 255, 255, 0.7);
-  border-radius: 14px;
-  text-align: center;
-  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 0 1px 8px rgba(0, 0, 0, 0.5);
-  margin-bottom: 34px;
-  transition: all 0.2s ease-out;
-}
-
-
-#rsvp-link {
-  color: #555;
-  font-size: 26px;
-  font-weight: 900;
-  text-decoration: none;
-  line-height: 60px;
-  padding: 13px 37px;
-  transition: all 0.2s ease-out;
-}
-
-.rsvp-button:hover {
-  width: 185px;
-  box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
-  -moz-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
-  background-color: #fff;
-}
-
-
-#rsvp-link {
-  font-size: 30px;
-  padding: 16px 40px;
-}
-
 @media (max-width: 2000px) {
   .date-wrapper {
     flex-basis: 50%; /* 2 items per row */
@@ -471,6 +602,8 @@ h1, p {
   -webkit-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
   background-color: #fff;
+  transform: scale(1.05);
+
 }
 
 .getting-married-text {
@@ -496,7 +629,7 @@ h1, p {
   background-color: #000000aa;
   width: 100%;
   height: 100%;
-  z-index: 100;
+  z-index: 10000;
   justify-content: center;
   align-items: flex-start;
   text-align: center;
@@ -509,7 +642,7 @@ h1, p {
   border-radius: 12px;
   max-width: 700px;
   color: #333;
-  z-index: 101;
+  z-index: 110;
   max-height: 89vh;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   -webkit-box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -642,6 +775,7 @@ h1, p {
 
 
 /* Reset default input styles */
+
 input {
   border: none;
   outline: none;
@@ -651,6 +785,7 @@ input {
 }
 
 /* Custom styles for the input container */
+
 .input-container {
   display: inline-block;
   position: relative;
@@ -664,11 +799,13 @@ input {
 }
 
 /* Style the input placeholder text */
+
 input::placeholder {
   color: #777;
 }
 
 /* Add a subtle border on focus */
+
 input:focus + .input-container {
   box-shadow: 0 0 8px rgba(46, 204, 113, 0.5);
 }
@@ -731,8 +868,16 @@ input:focus + .input-container {
   }
 }
 
+.bridal-party {
+  background-color: #bfa6d4;
+}
+
+
+.grooms-party {
+  background-color: #a3caec;
+}
+
 .wedding-party-wrapper {
-  background-color: #faf4ec;
   padding: 20px 26px;
   text-align: center;
 }
@@ -740,9 +885,19 @@ input:focus + .input-container {
 .wedding-party-flex {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: start;
   flex-direction: row;
   flex-wrap: wrap;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.meet-the-party-titles {
+  font-size: 70px;
+  font-weight: bold;
+  color: #222;
 }
 
 .wedding-party-bio {
@@ -752,18 +907,20 @@ input:focus + .input-container {
   text-align: center;
   padding: 18px 28px;
   color: #333;
-  background-color: #fff;
+  min-height: 500px;
+  min-width: 274px;
+  background-color: #f2f2f2;
   border-radius: 27px;
   margin: 20px 12px;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  /*box-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);*/
 }
 
 .wedding-party-bachelorette {
-  box-shadow: 0 1px 7px rgb(113 20 160 / 50%);
+  /*box-shadow: 0 1px 7px rgb(113 20 160 / 50%);*/
 }
 
 .wedding-party-bachelor {
-  box-shadow: 0 1px 7px rgb(24 106 171 / 50%);
+  /*box-shadow: 0 1px 7px rgb(24 106 171 / 50%);*/
 }
 
 .wedding-party {
@@ -775,8 +932,19 @@ input:focus + .input-container {
   margin-left: 12px;
 }
 
-.wedding-party-title{
+.wedding-party-title {
   margin-bottom: -6px;
+  font-size: 20px;
+  font-weight: 500;
+  color: #333;
+}
+
+.wedding-party-type-title {
+  font-size: 19px;
+  font-weight: 500;
+  color: #555;
+  font-style: italic;
+
 }
 
 .invite-section-image {
@@ -857,13 +1025,85 @@ input:focus + .input-container {
   -webkit-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 4px 5px 12px rgba(0, 0, 0, 0.5);
   background-color: #fff;
+  transform: scale(1.05);
 }
 
-#registry-message{
+#registry-message {
   max-width: 500px;
   text-align: center;
   color: #ddd;
   font-weight: bold;
   font-size: 22px;
+}
 
+
+.code-button {
+  cursor: pointer;
+  transition: all 0.15s ease-out;
+  text-decoration: none;
+
+}
+
+.code-button:active {
+  transform: scale(1.15);
+}
+
+#barry-modal {
+  padding-top: 100px !important;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+}
+
+#itinerary-container {
+  background-color: #fff;
+}
+
+#monday-itinerary-modal {
+  padding: 12px;
+  background: #fff;
+  border-radius: 10px;
+  margin: 32px;
+}
+
+#monday-itinerary {
+  height: 90vh;
+}
+
+
+@media (max-width: 600px) {
+  #monday-itinerary-modal {
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  #monday-itinerary {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+
+
+
+.display-none{
+  display:  none;
+}
+
+#map{
+  width: 150%;
+  left: -25%;
+  height: 600px;
+}
+
+
+@media (max-width: 600px) {
+  #map {
+    width: 100%;
+    left: 0;
+    height: 500px;
+  }
 }

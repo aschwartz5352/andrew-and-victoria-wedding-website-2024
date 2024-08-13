@@ -15,8 +15,40 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 500px;
+      width: 100%;
+    }
+  </style>
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import {initializeApp} from "https://www.gstatic.com/firebasejs/10.3.1/firebase-app.js";
+    import {getAnalytics} from "https://www.gstatic.com/firebasejs/10.3.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyAB5_Cu7ra45g-MFBQNxk-vQHhdGr3_FJw",
+      authDomain: "drewandvictoria2024.firebaseapp.com",
+      projectId: "drewandvictoria2024",
+      storageBucket: "drewandvictoria2024.appspot.com",
+      messagingSenderId: "412043687311",
+      appId: "1:412043687311:web:c2cebea3f1b5797057c7fa",
+      measurementId: "G-EB3LEHLTXY"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
   <link
-    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Josefin+Sans:wght@300&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Josefin+Sans:wght@300&family=Josefin+Sans:wght@500&display=swap"
     rel="stylesheet">
   <!--  <link rel="stylesheet"-->
   <!--        href="https://fonts.googleapis.com/css?family=Playfair%20Display">-->
@@ -29,6 +61,7 @@
 
     h2, h3, h4, h5, h6, p, a, input, button {
       font-family: 'Josefin Sans', sans-serif;
+      font-weight: 300;
     }
 
     #wedding-date {
@@ -44,7 +77,7 @@
   <link rel="apple-touch-icon" href="icon.png">
   <!-- Place favicon.ico in the root directory -->
   <!--website icon-->
-  <link rel="icon" href="img/barryicon_c.jpeg" type="image/x-icon">
+  <link rel="icon" href="img/barryicon.png" type="image/x-icon">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
 
@@ -57,7 +90,7 @@
 <div id="body-wrapper">
 
   <div class="modal-hidden" id="modal-backdrop">
-    <div id="modal">
+    <div id="modal" >
       <i class="fas fa-times" id="close-modal"></i>
 
       <img src="img/fjordring_c.jpeg" class="modal-image" alt="party">
@@ -80,8 +113,48 @@
       <p></p>
       <p></p>
     </div>
+
+    <div id="monday-itinerary-modal" class="display-none">
+      <img id="monday-itinerary" src="img/MondayWeddingItinerary.jpeg">
+
+    </div>
+
+    <div class="centered-text" id="barry-modal">
+
+      <h1>Barry Is So Excited To Celebrate With You!</h1>
+      <img src="img/barryicon.png" class="modal-image" alt="barry">
+    </div>
   </div>
 
+
+
+  <div id="rsvp-nav">
+<!--    <div class="rsvp-button" class="visible-invite">-->
+<!--      <a-->
+<!--        href="https://withjoy.com/victoria-and-drew-2024/rsvp"-->
+<!--        target="_blank" class="rsvp-link" id="rsvp-link-1">RSVP</a>-->
+<!--    </div>-->
+
+    <div  id="monday-itinerary-button">
+      <p class="mobile-nav-link" id="monday-itinerary-link">️📆  Monday Itinerary</p>
+    </div>
+
+    <div id="explore-map">
+      <p class="mobile-nav-link" id="explore-link">🗺️ Explore</p>
+    </div>
+  </div>
+
+
+  <div id="mobile-nav">
+    <img id="mobile-nav-button" src="img/nav_menu.svg">
+    <div id="mobile-nav-links-wrapper" style="display: none">
+      <p class="mobile-nav-link" id="mobile-reception-link">Reception</p>
+      <p class="mobile-nav-link" id="mobile-registry-link">Registry</p>
+      <p class="mobile-nav-link" id="mobile-faq-link">Q & A</p>
+      <!--      <a class="mobile-nav-link" id="mobile-wedding-party-link" href="weddingparty.html">Wedding Party</a>-->
+      <p class="mobile-nav-link" id="mobile-wedding-party-link">Wedding Party</p>
+    </div>
+  </div>
 
   <video autoplay muted playsinline id="proposal-video">
     <source src="img/kneevideo2.mp4" type="video/mp4">
@@ -97,6 +170,15 @@
   <div id="behind-video-spacer"></div>
 
   <div class="rsvp-wrapper">
+
+    <!--    <div id="nav">-->
+    <!--      <p class="nav-link" id="reception-link">Reception</p>-->
+    <!--      <p class="nav-link" id="faq-link">Q & A</p>-->
+    <!--      <p class="nav-link" id="wedding-party-link">Wedding Party</p>-->
+    <!--      <p class="nav-link" id="registry-link">Registry</p>-->
+
+    <!--    </div>-->
+
     <div class="flex-center">
       <h2 class="thank-you-message" id="welcome-name">Welcome Drew!</h2>
       <a id="change-name">Not Drew? Click here</a>
@@ -109,6 +191,14 @@
 
       <h2 class="thank-you-message">Celebrate With Us!</h2>
 
+      <div class="flex-center">
+        <div class="rsvp-button" class="visible-invite">
+          <a id="rsvp-link-2"
+            href="https://withjoy.com/victoria-and-drew-2024/rsvp?ecard=true"
+            target="_blank" class="rsvp-link">RSVP</a>
+        </div>
+      </div>
+
     </div>
 
     <div class="date-flex">
@@ -118,20 +208,32 @@
 
         <div class="date-info">
           <h2 class="party-type-name">Bachelor Party</h2>
-          <h3 class="party-date">TBD </h3>
+          <h3 class="party-date">July 13 - July16th </h3>
           <p class="address"></p>
-          <p class="address"> Chicago, IL </p>
+          <p class="address"> Breckenridge, CO </p>
         </div>
       </div>
 
-      <div id="bridal-shower-invite" class="date-wrapper">
+      <div id="bridal-shower-karen-invite" class="date-wrapper">
         <img src="img/flowers.png" class="party-type-icon" alt="party">
 
         <div class="date-info">
           <h2 class="party-type-name">Bridal Shower</h2>
-          <h3 class="party-date">TBD </h3>
+          <h3 class="party-date">Sunday, June 30th @ 12pm</h3>
           <p class="address"></p>
-          <p class="address"> Chicago Suburbs</p>
+          <p class="address"> <a href="https://www.google.com/maps/place/1555+N+Astor+St+%239,+Chicago,+IL+60610/@41.9110354,-87.6299126,17z/data=!3m1!4b1!4m5!3m4!1s0x880fd35cbe09d173:0xbd05df970efb6dbf!8m2!3d41.9110354!4d-87.6273377?entry=ttu" target="_blank" >1555 N Astor St #9</a></p>
+
+        </div>
+      </div>
+
+      <div id="bridal-shower-denise-invite" class="date-wrapper">
+        <img src="img/flowers.png" class="party-type-icon" alt="party">
+
+        <div class="date-info">
+          <h2 class="party-type-name">Bridal Shower</h2>
+          <h3 class="party-date">Saturday, July 20th</h3>
+          <p class="address"></p>
+          <p class="address">Northbrook IL</p>
         </div>
       </div>
 
@@ -140,7 +242,7 @@
 
         <div class="date-info">
           <h2 class="party-type-name">Bachelorette Party</h2>
-          <h3 class="party-date">TBD </h3>
+          <h3 class="party-date">June 28th - June 30th</h3>
           <p class="address"></p>
           <p class="address"> Chicago, IL</p>
         </div>
@@ -154,9 +256,9 @@
           <div class="date-info">
 
             <h2 class="party-type-name">Ceremony</h2>
-            <h3 class="party-date">September 1st, 2024 </h3>
+            <h3 class="party-date">Sunday September 1st</h3>
             <p class="address"></p>
-            <p class="address"> Wears Valley, TN</p>
+            <p class="address"> <a href="https://www.google.com/maps/place/Amazing+View+Manor/@35.7409722,-83.6780784,17z/data=!3m1!4b1!4m9!3m8!1s0x885eabcd89d3ebeb:0xd92107faa3c1ff11!5m2!4m1!1i2!8m2!3d35.7409722!4d-83.6754981!16s%2Fg%2F11s4zd_7d4?entry=ttu" target="_blank" >Wears Valley, TN</a></p>
           </div>
         </div>
       </div>
@@ -166,51 +268,19 @@
 
         <div class="date-info">
           <h2 class="party-type-name">Reception</h2>
-          <h3 class="party-date">September 1st, 2024</h3>
+          <h3 class="party-date">Sunday September 1st</h3>
           <p class="address"></p>
-          <p class="address"> Wears Valley, TN</p>
+          <p class="address"> <a href="https://www.google.com/maps/place/Amazing+View+Manor/@35.7409722,-83.6780784,17z/data=!3m1!4b1!4m9!3m8!1s0x885eabcd89d3ebeb:0xd92107faa3c1ff11!5m2!4m1!1i2!8m2!3d35.7409722!4d-83.6754981!16s%2Fg%2F11s4zd_7d4?entry=ttu"target="_blank" >Wears Valley, TN</a></p>
         </div>
       </div>
 
-
+      <div id="invite-wrapper"></div>
     </div>
 
-    <!--    <div class="flex-center">-->
-    <!--      <div class="rsvp-button">-->
-    <!--        <a href="https://withjoy.com/victoria-and-drew-2024/rsvp?ecard=true&personId=person-invitee-NbUu3guAR5L6DTwIWGd"-->
-    <!--           target="_blank" id="rsvp-link">RSVP</a>-->
-    <!--      </div>-->
-    <!--    </div>-->
 
   </div>
 
-  <div class="proposal-story">
-    <!--    <video autoplay loop muted playsinline id="schloss-video">-->
-    <!--      <source src="img/palace_breakfast.mp4" type="video/mp4">-->
-    <!--      Your browser does not support the video tag.-->
-    <!--    </video>-->
-    <div class="text-wrapper">
-      <img src="img/paw.png" class="paw" alt="paw" style="margin: -19px 55px">
-      <img src="img/paw.png" class="paw" alt="paw" style="margin: 22px 4px">
-      <h1 class="event-info-title">The Proposal</h1>
-      <p class="story-text">&nbsp;&nbsp;&nbsp;Growing up, Victoria and her family cherished The Sound of Music, finding
-        new meanings in it each year. It became her solace in tough times and a melody of her high school days. When she
-        discovered Drew had never seen it, they decided to travel to Austria for their winter vacation, a place dear to
-        Victoria due to her connection to the movie. Drew saw this as the perfect setting to propose. </p>
-      <p class="story-text">&nbsp;&nbsp;&nbsp;
-        He meticulously planned the proposal, opting for the hotel where exterior shots of The Sound of Music were
-        filmed. He secured a unique engagement ring, hired a photographer, and created a photo garland of their
-        relationship. And so their fairytale vacation began, exploring new places as they’d done so many times before.
-        That all changed their first morning at their hotel in Salzburg.</p>
-      <p class="story-text">&nbsp;&nbsp;&nbsp;
-        As they roamed the hotel's patio, Victoria discovered pictures of them throughout the years, leading to a
-        heart-shaped arrangement of roses and balloons, asking, "Marry me?" Drew led her through this romantic path,
-        surrounded by the Austrian Tirols, overflowing with heartfelt words. Overwhelmed, Victoria was left speechless
-        until Drew asked the life-changing question: "Victoria, will you marry me?"</p>
-    </div>
-  </div>
 
-  <img src="img/chineseroom.jpeg" class="body-image">
 
 
   <div class="proposal-story flex-center" id="ceremony-section">
@@ -218,9 +288,10 @@
     <div class="title-text-wrapper">
       <h1 class="event-info-title">Ceremony & Reception</h1>
       <h3 class="party-date">Checkin (optional) - Saturday, August 31st @ 4pm</h3>
-      <h3 class="party-date">All events - Saturday, September 1st</h3>
-      <h3 class="party-date">Checkout (optional) - Tuesday, September 2nd @ 10am</h3>
-      <h3 class="party-date">Location - Wears Valley, TN</h3>
+      <h3 class="party-date">All events - Sunday, September 1st</h3>
+      <h3 class="party-date">Checkout (optional) - Tuesday, September 3nd @ 10am</h3>
+      <h3 class="party-date"><a href="https://www.google.com/maps/place/Amazing+View+Manor/@35.7409722,-83.6780784,17z/data=!3m1!4b1!4m9!3m8!1s0x885eabcd89d3ebeb:0xd92107faa3c1ff11!5m2!4m1!1i2!8m2!3d35.7409722!4d-83.6754981!16s%2Fg%2F11s4zd_7d4?entry=ttu"  target="_blank">
+        4539 Misty Vw Dr, Sevierville, TN 37862</a></h3>
 
     </div>
     <div id="ceremony-reception-icon-wrapper">
@@ -263,17 +334,51 @@
     </div>
   </div>
 
+  <div id="itinerary-container">
+<!--    <img id="monday-itinerary" src="img/MondayWeddingItinerary.jpeg">-->
+  </div>
+
+  <div class="proposal-story">
+    <!--    <video autoplay loop muted playsinline id="schloss-video">-->
+    <!--      <source src="img/palace_breakfast.mp4" type="video/mp4">-->
+    <!--      Your browser does not support the video tag.-->
+    <!--    </video>-->
+    <div class="text-wrapper">
+      <img src="img/paw.png" class="paw" alt="paw" style="margin: -19px 55px">
+      <img src="img/paw.png" class="paw" alt="paw" style="margin: 22px 4px">
+      <h1 class="event-info-title">The Proposal</h1>
+      <p class="story-text">&nbsp;&nbsp;&nbsp;Growing up, Victoria and her family cherished The Sound of Music, finding
+        new meanings in it each year. It became her solace in tough times and a melody of her high school days. When she
+        discovered Drew had never seen it, they decided to travel to Austria for their winter vacation, a place dear to
+        Victoria due to her connection to the movie. Drew saw this as the perfect setting to propose. </p>
+      <p class="story-text">&nbsp;&nbsp;&nbsp;
+        He meticulously planned the proposal, opting for the hotel where exterior shots of The Sound of Music were
+        filmed. He secured a unique engagement ring, hired a photographer, and created a photo garland of their
+        relationship. And so their fairytale vacation began, exploring new places as they’d done so many times before.
+        That all changed their first morning at their hotel in Salzburg.</p>
+      <p class="story-text">&nbsp;&nbsp;&nbsp;
+        As they roamed the hotel's patio, Victoria discovered pictures of them throughout the years, leading to a
+        heart-shaped arrangement of roses and balloons, asking, "Marry me?" Drew led her through this romantic path,
+        surrounded by the Austrian Tirols, overflowing with heartfelt words. Overwhelmed, Victoria was left speechless
+        until Drew asked the life-changing question: "Victoria, will you marry me?"</p>
+    </div>
+  </div>
+
+  <img src="img/chineseroom.jpeg" class="body-image">
+
   <div id="registry-section" class="animated-gradient">
-    <h2 class="thank-you-message">Registry</h2>
-    <p id="registry-message">We are incredibly grateful for your presence at our wedding. Your love and support mean the world to us. Your generosity in helping us build our future together is a cherished gift in itself. Thank you for being a part of our special day!</p>
-    <a href="https://withjoy.com/victoria-and-drew-2024/registry" id="registry-button">
+    <h1 class="thank-you-message">Registry</h1>
+    <p id="registry-message">We are incredibly grateful for your presence at our wedding. Your love and support mean the
+      world to us. Your generosity in helping us build our future together is a cherished gift in itself. Thank you for
+      being a part of our special day!</p>
+    <a href="https://withjoy.com/victoria-and-drew-2024/registry" target="_blank" id="registry-button">
       <img src="img/giftbox.png" id="registry-icon" alt="party">
 
       <p id="registry-button-text">View registry</p></a>
   </div>
 
   <div class="body-flex">
-    <div class="body-wrapper">
+    <div class="body-wrapper" id="faq-section">
 
 
       <h2>FAQs</h2>
@@ -283,12 +388,13 @@
 
       <hr/>
 
-      <div class="flex-row"><h3 class="faq-emoji">✈️</h3>
+      <div class="flex-row"><h3 class="faq-emoji code-button" id="a-button">✈️</h3>
         <h3> How should we get there?</h3></div>
       <p>Most people will fly into the Knoxville Airport (McGhee Tyson Airport) and drive or Uber/Lyft 50 minutes
         directly to the cabins.</p>
       <p>You are also more than welcome to make the 9-hour drive from Chicago.</p>
-
+      <p>Cabin Address:</p>
+      <p>4539 Misty Vw Dr, Sevierville, TN 37862</p>
       <hr/>
 
       <div class="flex-row"><h3 class="faq-emoji">🕐</h3>
@@ -298,7 +404,7 @@
 
       <hr/>
 
-      <div class="flex-row"><h3 class="faq-emoji">🌦️</h3>
+      <div class="flex-row"><h3 class="faq-emoji code-button" id="r-button">🌦️</h3>
         <h3>Will the ceremony, cocktail hour, and reception take place indoors or outdoors?</h3></div>
       <p>The ceremony will take place just outside the cabins on the private drive overlooking the Smoky Mountains. The
         cocktail hour will take place on the patio in the main cabin, which is partially covered but outdoors. The
@@ -307,7 +413,7 @@
 
       <hr/>
 
-      <div class="flex-row"><h3 class="faq-emoji">🥗</h3>
+      <div class="flex-row"><h3 class="faq-emoji code-button" id="b-button">🍔</h3>
         <h3> What will we be eating?</h3></div>
       <p>We will be catering food to the cabins.</p>
       <p> As people arrive on Saturday night we will have Chipotle catered so that as you arrive you may make whatever
@@ -335,11 +441,107 @@
 
       <div class="flex-row"><h3 class="faq-emoji">🗺️</h3>
         <h3>I’ll be visiting from out of town. What is there to do in the area?</h3></div>
-      <p> First of all, thank you for making the trip out here! While the cabins are remote, there are nearby hiking
+      <p id="text-over-map"> First of all, thank you for making the trip out here! While the cabins are remote, there are nearby hiking
         trails and the cabins themselves will provide plenty of entertainment and things to enjoy.
         However, if you would like to get away then the nearest town is called Pigeon Forge and is super touristy.
         Closer to the wedding we’ll provide a list of activities and places we recommend.
       </p>
+      <div id="map"></div>
+<!--      <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d11413.182217628735!2d-83.68082361242952!3d35.70334305202049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x885eabc7fa67d597%3A0xb823138b3fb00e33!2sThe%20Hawk%20Skylift!3m2!1d35.702663!2d-83.67111489999999!4m5!1s0x885eabcd89d3ebeb%3A0xd92107faa3c1ff11!2sAmazing%20View%20Manor%2C%204539%20Misty%20Vw%20Dr%2C%20Sevierville%2C%20TN%2037862!3m2!1d35.7410304!2d-83.6755203!5e0!3m2!1sen!2sus!4v1723483558585!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>-->
+      <!-- Leaflet JS -->
+      <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+      <script>
+        // Initialize the map and set its view to the chosen geographical coordinates and a zoom level
+        var map = L.map('map').setView([35.54098722494477, -86.99556305199123], 12); // Coordinates for Switzerland
+        // Add the OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        var startLocation = [35.70414920171607, -83.64237065266443];
+
+        var hikeIcon = L.icon({
+          iconUrl: 'img/icons/hike.png',
+          iconSize: [46, 46], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var planeIcon = L.icon({
+          iconUrl: 'img/icons/plane.png',
+          iconSize: [46, 46], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var houseIcon = L.icon({
+          iconUrl: 'img/icons/house.png',
+          iconSize: [61, 61], // size of the icon
+          iconAnchor: [0, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var ringIcon = L.icon({
+          iconUrl: 'img/icons/wedding.png',
+          iconSize: [41, 41], // size of the icon
+          iconAnchor: [10, 60], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var coasterIcon = L.icon({
+          iconUrl: 'img/icons/coaster.png',
+          iconSize: [41, 41], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var groceriesIcon = L.icon({
+          iconUrl: 'img/icons/groceries.png',
+          iconSize: [41, 41], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var coffeeIcon = L.icon({
+          iconUrl: 'img/icons/coffee.png',
+          iconSize: [41, 41], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        // Array of destination locations
+        var locations = [
+          { name: "Hawk Skylift", coords: [35.70267312487538, -83.671139848850913], icon:{} },
+          { name: "The Artistic Bean (Drew's Favorite Coffee)", coords: [35.679785817275196, -83.7366747957388], icon:{icon:coffeeIcon} },
+          { name: "Cute Coffee Shop (The Heavenly Roast)", coords: [35.7139567902226, -83.652641757457], icon:{icon:coffeeIcon} },
+          { name: "Goats on the Roof (Roller Coaster)", coords: [35.789447010928086, -83.61219579522354], icon:{icon:coasterIcon} },
+          { name: "The Island", coords: [35.802741688007615, -83.57043058290827], icon:{} },
+          { name: "Laural Falls Hike", coords: [35.67201958830248, -83.58049011874769], icon:{icon:hikeIcon} },
+          { name: "West Prong Hike", coords: [35.64096604482063, -83.69120365814523], icon:{icon:hikeIcon} },
+          { name: "Outdoor Ceremony 6pm", coords: [35.740992087910705, -83.6757702370903], icon:{icon:ringIcon} },
+          { name: "Mgee Tyson Airport", coords: [35.80453338992742, -83.98800555420817], icon:{icon:planeIcon} },
+          { name: "Townsend IGA Groceries", coords: [35.6800119420779, -83.74256434162177], icon:{icon:groceriesIcon} },
+          { name: "Amayzing view Manor", coords: [35.74098722494477, -83.67556305199123], icon:{icon: houseIcon} },
+
+
+        ];
+
+        // Loop through the locations array and add markers to the map
+        locations.forEach(function(location) {
+          var marker = L.marker(location.coords, location.icon).addTo(map);
+
+          // Google Maps Directions URL with both start and destination
+          var directionsUrl = `https://www.google.com/maps/dir/?api=1&origin=${startLocation[0]},${startLocation[1]}&destination=${location.coords[0]},${location.coords[1]}`;
+
+          // Bind a popup with the location name and a link for directions
+          marker.bindPopup(
+            `<b>${location.name}</b><br><a href="${directionsUrl}" target="_blank">Get Directions</a>`
+          ).openPopup();
+        });
+
+        map.panTo(new L.LatLng(35.73980241239142, -83.67526151513364));
+
+      </script>
 
       <hr/>
 
@@ -350,7 +552,7 @@
       <hr/>
 
 
-      <div class="flex-row"><h3 class="faq-emoji">🎉</h3>
+      <div class="flex-row"><h3 class="faq-emoji code-button" id="y-button">🎉</h3>
         <h3> When will the reception end? Will there be an after-party? </h3></div>
       <p>The beautiful thing about not hosting our reception at a traditional wedding venue is that the party never
         stops! While the party will keep going late into the night on Sunday night in the main cabin, the second cabin
@@ -361,7 +563,7 @@
 
       <div class="flex-row"><h3 class="faq-emoji">👔</h3>
         <h3> What is the dress code? </h3></div>
-      <p>Please wear a suit or dress. It is not black tie</p>
+      <p>Cocktail Attire</p>
       <p>We suggest bringing hiking clothes and a bathing suit as well</p>
 
       <hr/>
@@ -374,144 +576,248 @@
     </div>
   </div>
 
-    <div class="wedding-party-wrapper">
-      <h2>Meet the Party</h2>
-      <div class="wedding-party-flex">
-        <div class="wedding-party-bio wedding-party-bachelorette">
-          <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Jenny Dent</h3>
-          <p>Maid of Honor</p>
-        </div>
 
-        <div class="wedding-party-bio wedding-party-bachelorette">
-          <img src="img/friends/abby_oconnor.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Abby O'Connor</h3>
-          <p>Bridesmaid</p>
-        </div>
+  <div class="wedding-party-wrapper bridal-party" id="wedding-party-section">
+    <h1 id="meet-the-party-title" class="meet-the-party-titles">Meet the Party</h1>
+    <div class="wedding-party-flex">
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Jenny Dent</h3>
+        <p class="wedding-party-type-title">Maid of Honor</p>
+        <p>Like I said during my Maid of Honor speech at Jenny’s wedding back in October of 2017, literally the ONLY
+          not-perfect things about Jenny are that she doesn’t love animals and she’s not vegetarian or vegan. She’s the
+          best, most supportive, patient, beautiful, and motivational sister anyone could ask for.
+          I’ve always joked that she’s so perfect you want to hate her, but she’s also so kind, selfless, and generous
+          that you can’t hate her 🤪
+          Every day she inspires me to be a better runner (I’ll beat her marathon time one day…maybe 😜), sister, friend,
+          and person. Our bond only grows stronger with every passing year and I’m so excited to have the roles reversed
+          with her being my matron of honor and me being the bride this time around.
+        </p>
+      </div>
 
-        <div class="wedding-party-bio wedding-party-bachelorette">
-          <img src="img/friends/emily_diener.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Emily Diener</h3>
-          <p>Bridesmaid</p>
-        </div>
 
-        <div class="wedding-party-bio wedding-party-bachelorette">
-          <img src="img/friends/emily_diener.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Kelly Cerniglia</h3>
-          <p>Bridesmaid</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelorette">
-          <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Alex Schroeder</h3>
-          <p>Bridesmaid</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelorette">
-          <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Anna Kornreich</h3>
-          <p>Bridesmaid</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelorette">
-          <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Jenny Kornreich</h3>
-          <p>Bridesmaid</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelorette">
-          <img src="img/friends/jenny_dent.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Caroline Kornreich</h3>
-          <p>Bridesmaid</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelorette">
-          <img src="img/friends/jenna_schwartz.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Cordelia Grob</h3>
-          <p>Bridesmaid</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelorette">
-          <img src="img/friends/jenna_schwartz.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Jenna Schwartz</h3>
-          <p>Bridesmaid</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelor">
-          <img src="img/friends/adam_kaz_groomsmen.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Adam Kaz</h3>
-          <p>Best Man</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelor">
-          <img src="img/friends/steven_abraham_groomsmen.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Steven Abraham</h3>
-          <p>Groomsmen</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelor">
-          <img src="img/friends/saul_rodríguez.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Saul Rodriguez</h3>
-          <p>Groomsmen</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelor">
-          <img src="img/friends/kyle_nixon_groomsmen.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Kyle Nixon</h3>
-          <p>Groomsmen</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelor">
-          <img src="img/friends/robert_zajak_groomsmen.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Robert Zajac</h3>
-          <p>Groomsmen</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelor">
-          <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Divij Nagpaul</h3>
-          <p>Groomsmen</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelor">
-          <img src="img/friends/michael_dent_groomsmen.jpeg" alt="party" class="wedding-party">
-          <h3 class="wedding-party-title">Michael Dent</h3>
-          <p>Groomsmen</p>
-        </div>
-
-        <div class="wedding-party-bio wedding-party-bachelor">
-          <img src="img/friends/scottie_dent.jpeg" alt="party" class="wedding-party">
-          <h3>Scott Dent</h3>
-          <p>Groomsmen</p>
-        </div>
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/jenna_schwartz.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Jenna Schwartz</h3>
+        <p class="wedding-party-type-title">Best Woman</p>
+        <p>
+          Jenna is an incredible sister, role model, fashion expert, and Tampa guide. She has always inspired me to work
+          hard and put myself out there. She had a huge role in helping me plan Victoria's proposal. Due to her
+          excitement for the proposal, Jenna was the only one awake at 3 am. As a result she was the first person for us
+          to call and share the great news! After landing in Chicago after our trip, Jenna put a perfect end to the
+          proposal event with an airport family surprise with wine, snacks, gifts, and a private driver. Even though we
+          have lived in different states for over 10 years, I am so grateful to still be so close with my sister. Jenna
+          deserve to be my best man/person and a bridesmaid for Victoria.
+        </p>
       </div>
     </div>
+
+    <h1 class="meet-the-party-titles">Bridesmaids</h1>
+
+    <div class="wedding-party-flex">
+
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/emily_diener_bridesmaid.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Emily Diener</h3>
+        <p class="wedding-party-type-title">Co-Maid of Honor</p>
+        <p>My twin, my wife, the mother to our adopted children, and my best friend in crime. From tricking drunk frat
+          boys into believing we’re actual twins, to consoling each other when we’ve gotten our hearts broken, and
+          obsessing over Twilight and TSwift, we’ve been through it all. I’m so grateful she eagerly agreed to be a
+          bridesmaid.
+        </p>
+      </div>
+
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/alex_schroeder_bridesmaid.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Alex Schroeder</h3>
+        <p class="wedding-party-type-title">Co-Maid of Honor</p>
+        <p>There’s no more fitting beginning to our friendship than just happening to watch Fifty Shades of Grey in the
+          same theater at the same time with different groups of people, then running into each other afterward. Two and
+          a half years later I was welcomed to spend Thanksgiving break with Alex’s family at her childhood home. It was
+          there that I realized that Drew and I had been in the same photos/videos from the Chicago Marathon over a year
+          prior to matching on Tinder. That week was also when Alex encouraged me to go on the mocha date with Drew when
+          we got back to campus. Her and Abby were also the ones to read Drew’s response to my un-friendzoning message
+          to him (after they helped me draft said message and Alex hit “send” for me) as I couldn’t bear the potential
+          rejection 🙈. Flash forward another 5 years and I’m so thankful to have Alex by my side as I say “I do” to the
+          guy we were drunkenly messaging on Blackout Wednesday.
+        </p>
+      </div>
+
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/kelly_cerniglia_bridesmaid.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Kelly Cerniglia</h3>
+        <p class="wedding-party-type-title">Bridesmaid</p>
+        <p>Never have I met a more loyal, trustworthy, supportive, and fun friend. She has shown me what true friendship
+          looks like and has proved time and time again that she has my back even when I’m not around. I couldn’t ask
+          for a better friend to stand by my side as a bridesmaid. </p>
+      </div>
+
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/abby_oconnor_bridesmaid.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Abby O'Connor</h3>
+        <p class="wedding-party-type-title">Bridesmaid</p>
+        <p>
+          Without Abby, this wedding would NOT be happening…literally. She encouraged me to go out with Drew the first
+          time, helped me draft the message to friend-zone Drew, then a few months later drafted ANOTHER message to
+          un-friendzone Drew, and she and Alex were the ones to read Drew’s response to that message since I was too
+          nervous to see his reaction to me reaching out after being 👻ed. After a few weeks of messaging with neither me
+          nor Drew asking the other out, Abby drunkenly took my phone on Unofficial and asked Drew out. From there Drew
+          became the third wheel to Abby and me. Therefore, it’s only fitting to have Drew by my side as Abby and I read
+          our vows and share our first kiss as a married couple… 👩🏼‍❤️‍💋‍👩🏻 (Did I get that right?)
+        </p>
+      </div>
+
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/cordelia_grob_bridesmaid.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Cordelia Grob</h3>
+        <p class="wedding-party-type-title">Bridesmaid</p>
+        <p>Whoever said that the best friendships begin with one person thinking the other person is super weird must
+          have foreseen ours coming from a mile away. I am so grateful for the 16 years of friendship she and I have
+          shared, and I am so excited to have her by my side as a bridesmaid!</p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/anna_kornreich_bridesmaid.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Anna Kornreich</h3>
+        <p class="wedding-party-type-title">Bridesmaid</p>
+        <p>Between summers at Green Lake, spring breaking at the USA House, and holidays in Lake Forest or Mequon, she
+          and I have made so many wonderful (and embarrassing) memories together over the years. She’s been family but
+          also a close friend for as long as I can remember, and I’m so lucky that she eagerly agreed to be a
+          bridesmaid.
+        </p>
+      </div>
+
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/jenny_kornreich_bridesmaid.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Jenny Kornreich</h3>
+        <p class="wedding-party-type-title">Bridesmaid</p>
+        <p>It’s rare to find someone younger whom you admire and look up to from an early age, much less grow up
+          alongside them. For me, that person has been Jenny Kornreich. She’s been exemplifying the values I admire most
+          since her young days as an early vegetarian and a lifelong animal lover. I am so honored that she’ll be
+          standing by my side as a bridesmaid.
+        </p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelorette">
+        <img src="img/friends/caroline_kornreich_bridesmaid.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Caroline Kornreich</h3>
+        <p class="wedding-party-type-title">Bridesmaid</p>
+        <p>
+          Whenever I think of Caroline, the phrase “mature for her age” comes to mind. She’s been wise beyond her years
+          while also maintaining that youthful joy, which I didn’t think was possible. In addition, she’s kind, insanely
+          smart, VEGETARIAN (woohoo!), super athletic, and so easygoing. I can’t wait to have her by my side on my
+          wedding day.
+        </p>
+      </div>
+
+
+    </div>
+  </div>
+
+  <div class="wedding-party-wrapper grooms-party">
+
+    <h1 class="meet-the-party-titles">Groomsmen</h1>
+
+    <div class="wedding-party-flex" id="gro">
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/adam_kaz_groomsmen.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Adam Kaz</h3>
+        <p class="wedding-party-type-title">Groomsman</p>
+        <p>My cousin Adam and I grew up in neighboring towns. We have so many great memories of sleepovers at our
+          grandma’s house near Six flags and holidays at his house. For 5 years we went to summer camp together in
+          Wisconsin. It was so nice having a familiar face there until we got used to being away from home. Adam truly made my childhood so
+          much more fun, I appreciate you bro.
+        </p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/steven_abraham_groomsmen.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Steven Abraham</h3>
+        <p class="wedding-party-type-title">Groomsman</p>
+        <p>Steven and I went to the same middle school, high school, and college. We had so much fun in cross country
+          and track traveling to events and competing in conference championships. We even had the opportunity to run an
+          overnight relay race together. We later were roommates together for 3 years in college. Our sophomore year we would go to our apartment’s gym 3 days a week. His encouragement helped me
+          reach my goals.
+        </p>
+      </div>
+
+      <!--      <div class="wedding-party-bio wedding-party-bachelor">-->
+      <!--        <img src="img/friends/kyle_nixon_groomsmen.jpeg" alt="party" class="wedding-party">-->
+      <!--        <h3 class="wedding-party-title">Kyle Nixon</h3>-->
+      <!--        <p class="wedding-party-type-title">Groomsman</p>-->
+
+      <!--      </div>-->
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/robert_zajak_groomsmen.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Robert Zajac</h3>
+        <p class="wedding-party-type-title">Groomsman</p>
+        <p>Rob is the go to guy for mountain biking and ski trips. He is great to have a good conversation with on the ski
+          Lift. During the work week we regularly meetup downtown for lunch
+          and work at our social club. I appreciate how Rob always gives a warm welcome and positive spirit whenever we
+          hangout.
+        </p>
+
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/divij_nagpaul_groomsman.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Divij Nagpaul</h3>
+        <p class="wedding-party-type-title">Groomsman</p>
+        <p>
+          Divij is my only regular biking partner. We love going on rides along lake Michigan to our favorite cafe in
+          Hyde park. He lives life to the fullest and is great about including us in his adventures no matter big or small. Such an easy going guy who I appreciate having to help discuss and solve problems.
+
+        </p>
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/michael_dent_groomsmen.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Michael Dent</h3>
+        <p class="wedding-party-type-title">Groomsman</p>
+        <p>
+          Michael is Victoria's older brother and someone I admire for his career achievements and his sense of style. His humor and vibrant energy always light up any event. I'm especially grateful to have Michael as a groomsman. His experience as a wedding party member is invaluable, and I appreciate the warm welcome he has extended to me into his family.
+
+        </p>
+
+      </div>
+
+      <div class="wedding-party-bio wedding-party-bachelor">
+        <img src="img/friends/scottie_dent_groomsman.jpeg" alt="party" class="wedding-party">
+        <h3 class="wedding-party-title">Scott Dent</h3>
+        <p class="wedding-party-type-title">Groomsman</p>
+        <p>Scott is Victoria’s younger brother. He was the first sibling to hear about our engagement and his reaction was extremely encouraging and I am so thankful for that boost in confidence. We were lucky to be able to have an incredible trip together in Europe last summer. Because of his incredible driving skills we were able to easily visit the beautiful Dolomite mountains in Italy for the best week of hiking, food, and seeing Fez from that 70’s show.</p>
+
+      </div>
+    </div>
+  </div>
 
   <div id="end-section" class="flex-center">
     <hr/>
 
     <p>Thank you for reading this far. I had a lot of fun making this website from scratch</p>
+    <hr/>
+
+    <p>There is an easter egg on this website, here is a clue...</p>
+    <p>Our dog Barry is hiding! The Questions is, where is he?</p>
+    <hr/>
+
     <p>Made by Drew Schwartz</p>
-    <!--    <a href="https://www.flaticon.com/free-icons/gift" title="gift icons">Gift icons created by Freepik - Flaticon</a>-->
+        <a href="https://www.flaticon.com/free-icons/gift" title="gift icons">Gift icons created by Freepik - Flaticon</a>
   </div>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/nav.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <!--  <script>-->
-  <!--    window.ga = function () {-->
-  <!--      ga.q.push(arguments)-->
-  <!--    };-->
-  <!--    ga.q = [];-->
-  <!--    ga.l = +new Date;-->
-  <!--    ga('create', 'UA-XXXXX-Y', 'auto');-->
-  <!--    ga('set', 'anonymizeIp', true);-->
-  <!--    ga('set', 'transport', 'beacon');-->
-  <!--    ga('send', 'pageview')-->
-  <!--  </script>-->
-  <!--  <script src="https://www.google-analytics.com/analytics.js" async></script>-->
 </div>
 </body>
 
