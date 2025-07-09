@@ -244,7 +244,6 @@ h1, p {
   position: fixed;
   /*float: left;*/
   z-index: 500;
-  width: 100%;
   color: #eee;
   padding: 38px;
   flex-direction: column;
@@ -265,7 +264,7 @@ h1, p {
 }
 
 #monday-itinerary-button {
-  width: 240px !important;
+  width: 300px !important;
 }
 
 
@@ -295,7 +294,6 @@ h1, p {
   position: fixed;
   /*float: left;*/
   z-index: 500;
-  width: 100%;
   color: #eee;
   padding-left: 38px;
   flex-direction: column;
@@ -305,7 +303,7 @@ h1, p {
 #mobile-nav-links-wrapper {
   display: flex;
   flex-direction: column;
-  width: 215px;
+  width: 315px;
 }
 
 #mobile-nav-button {
@@ -347,7 +345,6 @@ h1, p {
 
 #nav {
   z-index: 11;
-  width: 100%;
   display: flex;
   justify-content: center;
   color: #eee;
@@ -376,7 +373,9 @@ h1, p {
   #mobile-nav-button {
     width: 30px;
   }
-
+  .mobile-nav-link {
+    font-size: 20px;
+  }
 
   #nav {
     /*display: none;*/

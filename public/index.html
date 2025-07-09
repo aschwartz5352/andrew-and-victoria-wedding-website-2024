@@ -180,7 +180,7 @@
     <!--    </div>-->
 
     <div class="flex-center">
-      <h2 class="thank-you-message" id="welcome-name">Welcome Drew!</h2>
+      <h2 class="thank-you-message" id="welcome-name">Welcome!</h2>
       <a id="change-name">Not Drew? Click here</a>
 
       <div id="friend-image-wrapper" style="display: none">
@@ -458,7 +458,7 @@
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        var startLocation = [35.70414920171607, -83.64237065266443];
+        var startLocation = [35.74098722494477, -83.67556305199123];
 
         var hikeIcon = L.icon({
           iconUrl: 'img/icons/hike.png',
@@ -504,14 +504,72 @@
 
         var coffeeIcon = L.icon({
           iconUrl: 'img/icons/coffee.png',
+          iconSize: [50, 50], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var gymIcon = L.icon({
+          iconUrl: 'img/icons/gym.png',
+          iconSize: [35, 35], // size of the icon
+          iconAnchor: [-40, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var walkIcon = L.icon({
+          iconUrl: 'img/icons/walk.png',
           iconSize: [41, 41], // size of the icon
           iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
           popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
         });
 
+        var bikeIcon = L.icon({
+          iconUrl: 'img/icons/bike.png',
+          iconSize: [41, 41], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var chairLiftIcon = L.icon({
+          iconUrl: 'img/icons/chairlift.png',
+          iconSize: [41, 41], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var pizzaIcon = L.icon({
+          iconUrl: 'img/icons/pizza.png',
+          iconSize: [41, 41], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var burgerIcon = L.icon({
+          iconUrl: 'img/icons/burger.png',
+          iconSize: [41, 41], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var mountainIcon = L.icon({
+          iconUrl: 'img/icons/mountain.png',
+          iconSize: [41, 41], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var avoidIcon = L.icon({
+          iconUrl: 'img/icons/avoid.png',
+          iconSize: [41, 41], // size of the icon
+          iconAnchor: [12, 41], // point of the icon which will correspond to marker's location
+          popupAnchor: [1, -34] // point from which the popup should open relative to the iconAnchor
+        });
+
+
+
         // Array of destination locations
         var locations = [
-          { name: "Hawk Skylift", coords: [35.70267312487538, -83.671139848850913], icon:{} },
+          { name: "Hawk Skylift", coords: [35.70267312487538, -83.671139848850913], icon:{icon:chairLiftIcon} },
           { name: "The Artistic Bean (Drew's Favorite Coffee)", coords: [35.679785817275196, -83.7366747957388], icon:{icon:coffeeIcon} },
           { name: "Cute Coffee Shop (The Heavenly Roast)", coords: [35.7139567902226, -83.652641757457], icon:{icon:coffeeIcon} },
           { name: "Goats on the Roof (Roller Coaster)", coords: [35.789447010928086, -83.61219579522354], icon:{icon:coasterIcon} },
@@ -521,6 +579,13 @@
           { name: "Outdoor Ceremony 6pm", coords: [35.740992087910705, -83.6757702370903], icon:{icon:ringIcon} },
           { name: "Mgee Tyson Airport", coords: [35.80453338992742, -83.98800555420817], icon:{icon:planeIcon} },
           { name: "Townsend IGA Groceries", coords: [35.6800119420779, -83.74256434162177], icon:{icon:groceriesIcon} },
+          { name: "The Preserve Resort Free Gym, pool, sauna", coords: [35.74026682879443, -83.67097829039626], icon:{icon:gymIcon} },
+          { name: "Walking and Biking path 5 miles", coords: [35.67278351075771, -83.71828610149669], icon:{icon:walkIcon} },
+          { name: "Bike Rental", coords: [35.679339357287944, -83.72107597380074], icon:{icon:bikeIcon} },
+          { name: "Elvira's Cafe (open only on Tuesday)", coords: [35.70384085079737, -83.6715104776513], icon:{icon:burgerIcon} },
+          { name: "Smoky Mountain Pizza Co. (closed on sunday)", coords: [35.702122617062024, -83.67417185980325], icon:{icon:pizzaIcon} },
+          { name: "Foothills Pkwy drive and view", coords: [35.705415888737186, -83.69271555520817], icon:{icon:mountainIcon} },
+          { name: "Downtown Pigeon Forge, do not go on Saturday and Sunday due to holiday traffic", coords: [35.795635610578344, -83.56370777860867], icon:{icon:avoidIcon} },
           { name: "Amayzing view Manor", coords: [35.74098722494477, -83.67556305199123], icon:{icon: houseIcon} },
 
 

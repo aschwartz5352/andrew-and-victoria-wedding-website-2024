@@ -7,19 +7,33 @@ window.onload = function () {
 
   const urlParams = new URLSearchParams(window.location.search);
   const nameParam = urlParams.get('name');
+  const view = urlParams.get('view');
+  const mode = urlParams.get('mode');
 
-  document.getElementById("modal-backdrop").style.display = "flex";
-  document.getElementById("search-name-input").focus();
 
-  if (nameParam) {
-    var name = nameParam.replace("_", " ");
-    document.getElementById("search-name-input").value = name;
-    // Replace 'popup.html' with the URL of the popup content you want to display
+  if (mode && mode === "public") {
+    console.log(mode)
 
-    // Once the popup is opened, set "name" in local storage to avoid reopening it on subsequent visits
+    setDefaultInvites();
+  } else {
+    document.getElementById("modal-backdrop").style.display = "flex";
+    document.getElementById("search-name-input").focus();
+
     if (nameParam) {
-      searchName(name);
+
+      const name = nameParam.replace("_", " ");
+      document.getElementById("search-name-input").value = name;
+      // Replace 'popup.html' with the URL of the popup content you want to display
+
+      // Once the popup is opened, set "name" in local storage to avoid reopening it on subsequent visits
+      if (nameParam) {
+        searchName(name);
+      }
     }
+  }
+
+  if(view && view === "qa"){
+    smoothScroll("faq-section")
   }
 
   // document.getElementById('schloss-video').playbackRate = 0.6;
@@ -113,7 +127,7 @@ var bachelorPartyGuests = ["drew schwartz", "scottie dent", "jenna schwartz", "m
 var bachelorettePartyGuests = ["victoria dent", "jenny dent", "willa stevenson", "anna kornreich", "jenny kornreich", "caroline kornreich", "taylor leen", "ava folloni", "jenna schwartz", "molly kaz", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "emma pire", "julia papanek", "peyton moore", "nora reimer", "riley maloney", "mia bertaud", "cordelia grob", "callie rukavania", "lucy lewis", "kari hafer", "chelsea bass", "jennifer chou"];
 // var ceremonyGuests = ["drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill matthews", "jenny kornreich", "caroline kornreich", "gail chelius", "steve schwartz", "denise schwartz", "jenna schwartz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "cordelia grob", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul"];
 
-var receptionGuests = ["jessi doyle", "june castro", "drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill matthews", "jenny kornreich", "caroline kornreich", "gail chelius", "mike chelius", "mike's gf", "jean leen", "kevin leen", "taylor leen", "cam leen", "cam's gf", "larry folloni", "michael folloni", "jimmie folloni", "bobby folloni", "ava folloni", "michael davis", "bernie kolasa", "steve schwartz", "denise schwartz", "jenna schwartz", "adam kaz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "susan ludwig", "alan ludwig", "amy denenberg", "greg denenberg", "rebecca lipson", "cheryl schwartz", "lisa mandl", "lezlie breezin", "todd breezin", "paul ludwig", "daphna ludwig", "danny schwartz", "jo schwartz", "susan lipson", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "emma pire", "frank bond", "julia papanek", "peyton moore", "dylan bragers", "nora reimer", "adam boik", "riley maloney", "mia bertaud", "evan patel", "nathan pitchaikani", "charlie huang", "victoria ludolph", "nicholas ludolph", "cordelia grob", "henry grob", "david grob", "elizabeth grob", "clarice shin", "kim schroeder", "kevin schroeder", "alec schroeder", "christian schroeder", "karen diener?", "mr. diener?", "emily's brother?", "mr. cerniglia?", "nicole cerniglia?", "mrs. cerniglia?", "jane pire", "tim pire", "abby pire", "renny pire", "callie rukavania", "ben (callie's fiancé)", "candace liu", "santiago maitret rodríguez", "ricardo bastin", "dr. danny lazar", "mara lazar", "ari lazar", "cami valencia", "emma lazar", "ryan (emma's boyfriend)", "michael pfeifer", "jennifer pfeifer", "jordan pfeifer", "michelle pfeifer", "david pfeifer", "david pfeifer guest?", "amy birtman", "scott birtman", "norma berg (oldest family friend)", "chris bagat?", "betty bagat?", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul", "arturo woodward-montes", "laurel chamberlin", "lucy lewis", "kari hafer", "chelsea bass", "chris bass", "jennifer chou", "logan cebrzynski", "arianna bastys", "charlie swarts", "erik beutil", "molly lennon"
+var receptionGuests = ["jessi doyle", "june castro", "drew schwartz", "victoria dent", "debbie dent", "thomas dent", "scottie dent", "jenny dent", "michael dent", "scott resetar", "willa stevenson", "karen kornreich", "dave kornreich", "will kornreich", "anna kornreich", "bill matthews", "jenny kornreich", "caroline kornreich", "gail chelius", "mike chelius", "mike's gf", "jean leen", "kevin leen", "taylor leen", "cam leen", "cam's gf", "larry folloni", "michael folloni", "jimmie folloni", "bobby folloni", "ava folloni", "michael davis", "bernie kolasa", "steve schwartz", "denise schwartz", "jenna schwartz", "adam kaz", "molly kaz", "david kaz", "jill kaz", "anita kaz", "earl schwartz", "pauline schwartz", "debra schwartz", "susan ludwig", "alan ludwig", "amy denenberg", "greg denenberg", "rebecca lipson", "cheryl schwartz", "lisa mandl", "lezlie breezin", "todd breezin", "paul ludwig", "daphna ludwig", "danny schwartz", "jo schwartz", "susan lipson", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "jacob gibbons", "colin kenny", "robbie ernst", "emma pire", "frank bond", "julia papanek", "peyton moore", "dylan bragers", "nora reimer", "adam boik", "riley maloney", "mia bertaud", "evan patel", "nathan pitchaikani", "charlie huang", "victoria ludolph", "nicholas ludolph", "cordelia grob", "henry grob", "david grob", "elizabeth grob", "clarice shin", "kim schroeder", "kevin schroeder", "alec schroeder", "christian schroeder", "karen diener?", "mr. diener?", "emily's brother?", "mr. cerniglia?", "nicole cerniglia?", "mrs. cerniglia?", "jane pire", "tim pire", "abby pire", "renny pire", "callie rukavania", "ben (callie's fiancé)", "candace liu", "santiago maitret rodríguez", "ricardo bastin", "dr. danny lazar", "mara lazar", "ari lazar", "cami valencia", "emma lazar", "ryan (emma's boyfriend)", "michael pfeifer", "jennifer pfeifer", "jordan pfeifer", "michelle pfeifer", "david pfeifer", "david pfeifer guest?", "amy birtman", "scott birtman", "norma berg (oldest family friend)", "chris bagat?", "betty bagat?", "steven abraham", "saul rodríguez", "liz sanchez", "kyle nixon", "molly konefes", "robert zajac", "divij nagpaul", "arturo woodward-montes", "laurel chamberlin", "lucy lewis", "kari hafer", "chelsea bass", "chris bass", "jennifer chou", "logan cebrzynski", "arianna bastys", "charlie swarts", "erik beutil", "molly lennon", "isabel fudali"
 ,"sarahrose lesmann", "pau burgoa", "fia foti", "anne pizzini", "tammy luu", "teddy english"];
 var bridalShowerDeniseGuests = ["victoria dent","jenna schwartz","thomas dent","debroah dent","denise schwartz","victoria ludolph","anita kaz","jill kaz","molly kaz","pauline schwartz","mara lazar","emma lazar","cami lazar","jennifer pfeifer","michelle pfeifer","amy birtman","susan ludwig","steve schwartz","susan lipson","jo schwartz","norma berg","debra schwartz"];
 // var bridalShowerDeniseGuests = ["drew schwartz", "victoria dent", "debbie dent", "jenny dent", "willa stevenson", "karen kornreich", "anna kornreich", "jenny kornreich", "caroline kornreich", "gail chelius", "jean leen", "taylor leen", "ava folloni", "denise schwartz", "jenna schwartz", "molly kaz", "jill kaz", "anita kaz", "pauline schwartz", "debra schwartz", "susan ludwig", "brittany lau", "emily diener", "alex schroeder", "kelly cerniglia", "abby o'connor", "emma pire", "julia papanek", "peyton moore", "nora reimer", "riley maloney", "mia bertaud", "victoria ludolph", "cordelia grob", "kiim schroeder", "callie rukavania", "candace liu", "lucy lewis", "kari hafer", "chelsea bass", "jennifer chou"]
@@ -174,8 +188,15 @@ function searchName(name) {
 
       const currentUrl = window.location.href;
       const url = new URL(currentUrl);
-      url.searchParams.set("name", results[0].replace(" ", "_"));
-      window.history.replaceState({}, "", url.toString());
+
+      const params = new URLSearchParams(url.search);
+      params.set("name", results[0].replace(" ", "_"));
+      params.delete('view');
+      params.delete('mode');
+      console.log(url)
+      // window.history.replaceState({}, "", url.toString());
+      url.search = params.toString();
+      window.history.replaceState({}, '', url);
 
       document.getElementById("modal-backdrop").style.display = "none";
 
@@ -293,7 +314,17 @@ function setInvites(name) {
   }
 
   startStaggeredAnimations();
+}
 
+function setDefaultInvites() {
+
+  document.getElementById("ceremony-invite").style.display = "block";
+  document.getElementById("ceremony-invite").classList.add("visible-invite");
+
+  document.getElementById("reception-invite").style.display = "block";
+  document.getElementById("reception-invite").classList.add("visible-invite");
+
+  startStaggeredAnimations();
 }
 
 function findGuest(name) {
@@ -638,6 +669,13 @@ document.getElementById("r-button").onclick = function () {
   }
 }
 
+
+let mouseDownTarget = null;
+
+document.getElementById('modal-backdrop').addEventListener('mousedown', function(event) {
+  mouseDownTarget = event.target;
+});
+
 document.getElementById("y-button").onclick = function () {
   if (barryCode === "barr") {
     barryCode = "barry";
@@ -650,13 +688,12 @@ document.getElementById("y-button").onclick = function () {
 }
 
 document.getElementById("modal-backdrop").onclick = function () {
-  console.log("asdf");
   if (document.getElementById("barry-modal").style.display === "flex") {
     document.getElementById("modal").style.display = "block";
     document.getElementById("modal-backdrop").style.display = "none";
     document.getElementById("barry-modal").style.display = "none";
   } else{
-    if (event.target === this) {
+    if (mouseDownTarget === event.target && event.target === this) {
       this.style.display = 'none';
     }
 
